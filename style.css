@@ -1,0 +1,255 @@
+:root {
+	--background-color: #8b8b8b;
+	--ui-elements-color: #4b4b4b;
+
+	--color-default-message: black;
+	--color-unobtainable: #c00000;
+	--color-migratable: #006c00;
+	--color-removed: #006c00;
+}
+
+body {
+	background-color: var(--background-color);
+
+	font-family: Tahoma, sans-serif;
+
+	font-smooth: never;
+	-webkit-font-smoothing: never;
+
+	font-size: 12px;
+}
+
+fieldset {
+	border-style: solid;
+	border-color: var(--ui-elements-color);
+	border-width: 1px;
+
+	padding: 6px 10px 14px 10px;
+
+	display: flex;
+	align-content: flex-start;
+
+	row-gap: 3px;
+	column-gap: 4px;
+}
+
+main > fieldset {
+	width: 320px;
+
+	flex-flow: row wrap;
+}
+
+main > fieldset:only-of-type {
+	width: 644px;
+}
+
+img {
+	image-rendering: pixelated;
+}
+
+main {
+	margin-bottom: 12px;
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+
+nav {
+	margin-bottom: 24px;
+}
+
+nav > fieldset {
+	max-width: 320px;
+	margin: auto;
+
+	flex-flow: column nowrap;
+}
+
+nav > fieldset button {
+	margin: auto;
+
+	padding: 3px 8px 3px 8px;
+}
+
+legend {
+	margin: 0 auto;
+
+	color: var(--ui-elements-color);
+}
+
+p {
+	margin: 2px;
+}
+
+#info {
+	margin-bottom: 100px;
+
+	flex-flow: column nowrap;
+
+	gap: 12px;
+
+	text-align: center;
+	line-height: 16px;
+	font-size: 11px;
+}
+
+#info-early-classic {
+	display: none;
+
+	color: var(--color-default-message);
+}
+
+#info-unknown-block-renders {
+	display: none;
+
+	color: var(--color-default-message);
+}
+
+#info-unknown-item-ids {
+	display: none;
+
+	color: var(--color-default-message);
+}
+
+
+#info-presumed-item-ids {
+	display: none;
+
+	color: var(--color-default-message);
+}
+
+#info-unobtainable {
+	display: none;
+
+	color: var(--color-unobtainable);
+}
+
+#info-migratable {
+	display: none;
+
+	color: var(--color-migratable);
+}
+
+#info-removed {
+	display: none;
+
+	color: var(--color-removed);
+}
+
+#inner-fieldset {
+	display: flex;
+
+	margin: 8px 16px 16px 16px;
+
+	gap: 16px;
+
+	flex-flow: column nowrap;
+}
+
+#version-info {
+	position: fixed;
+
+	bottom: 0;
+	right: 0;
+
+	border-top: 1px solid #9c8681;
+	border-left: 1px solid #9c8681;
+	border-radius: 10px 0 0 0;
+
+	background-color: rgba(223, 192, 185, 0.75);
+
+	padding: 2px 3px 2px 7px;
+}
+
+#version-selection {
+	display: flex;
+	flex-flow: column nowrap;
+
+	gap: 2px;
+}
+
+#version-selection select {
+	width: 160px;
+}
+
+#version-stuff {
+	display: flex;
+
+	flex-flow: row nowrap;
+	align-items: center;
+
+	gap: 16px;
+}
+
+.id {
+	text-align: center;
+}
+
+.id-unobtainable {
+	color: var(--color-unobtainable);
+}
+
+.id-migratable {
+	color: var(--color-migratable);
+}
+
+.id-removed {
+	color: var(--color-removed);
+}
+
+@media (max-width: 480px) {
+	main {
+		margin-bottom: 18px;
+
+		flex-flow: row wrap;
+
+		row-gap: 16px;
+	}
+
+	nav > form {
+		justify-content: flex-start;
+	}
+
+	p {
+		margin: 4px;
+	}
+}
+
+@media (prefers-contrast: more) {
+	:root {
+		--background-color: white;
+		--ui-elements-color: black;
+
+		--color-unobtainable: red;
+		--color-removed: #009700;
+	}
+
+	body {
+		font-weight: bold;
+	}
+}
+
+.with-tooltip .tooltip {
+	visibility: hidden;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	background-color: rgba(0, 0, 0, 0.755);
+
+	text-align: center;
+	line-height: 10px;
+	height: 11px;
+
+	font-weight: bold;
+	color: white;
+	text-shadow: 1px 1px 1px #3f3f3f;
+
+	padding: 6px 6px;
+}
+
+.with-tooltip:hover .tooltip {
+	visibility: visible;
+}

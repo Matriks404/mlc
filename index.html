@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Minecraft Legacy Companion</title>
+		<link rel="icon" type="image/png" href="images/blocks/preclassic/grass.png">
+		<link rel="apple-touch-icon" type="image/png" href="images/blocks/preclassic/grass.png">
+		<link rel="stylesheet" href="style.css">
+		<script type="module" src="script.js"></script>
+	</head>
+
+	<body>
+		<nav>
+			<fieldset>
+				<legend>Settings</legend>
+				<div id="inner-fieldset">
+					<div id="version-stuff">
+						<div id="version-stuff-title">
+							Game version:
+						</div>
+
+						<div id="version-selection">
+							<select id="version-groups"></select>
+							<select id="versions"></select>
+						</div>
+					</div>
+
+					<div id="settings">
+						<div id="exclude-unobtainable-setting">
+							<input type="checkbox" id="exclude-unobtainable" name="exclude-unobtainable" />
+							<label for="exclude-unobtainable">Exclude unobtainable blocks/items</label>
+						</div>
+
+						<div id="exclude-migratable-setting">
+							<input type="checkbox" id="exclude-migratable" name="exclude-migratable" />
+							<label for="exclude-migratable">Exclude blocks/items obtainable by migration</label>
+						</div>
+
+						<div id="display-air-block-setting">
+							<input type="checkbox" id="display-air-block" name="display-air-block" />
+							<label for="display-air-block">Display air "block"</label>
+						</div>
+
+						<!--<div id="use-beta173-graphics-setting">
+							<input type="checkbox" id="use-beta173-graphics" name="use-beta173-graphics" />
+							<label for="use-beta173-graphics">Use Beta 1.7.3 graphics (prevents image reloading)</label>
+						</div>-->
+					</div>
+				</div>
+
+				<button id="ok" type="button">Let's go!</button>
+			</fieldset>
+		</nav>
+
+		<main>
+		</main>
+
+		<div id="info">
+			<div id="info-early-classic">
+				<p>Please note that, in this early version these blocks don't appear in the game's GUI as shown here.</p>
+				<p>Instead, they are displayed here as they would appear in Classic version 0.0.20a_01.</p>
+			</div>
+
+			<div id="info-unknown-block-renders">
+				<p>This version has unknown inventory block renders.</p>
+				<p>If you know how to obtain these renders, please contribute.</p>
+			</div>
+
+			<div id="info-unknown-item-ids">
+				<p>This version has unknown item IDs. </p>
+				<p>It is assumed that only items that are in the starting inventory exist, and are ordered by slots they appear in.</p>
+				<p>This is very naive assumption, so if you know IDs for these items, please contribute.</p>
+			</div>
+
+			<div id="info-presumed-item-ids">
+				<p>This version has presumed item IDs. </p>
+				<p>It is assumed that items available are in the same order as in later versions.</p>
+				<p>This is naive assumption, so if you can confirm IDs for these items, please contribute.</p>
+			</div>
+
+			<div id="info-unobtainable">
+				<p>Data values colored in red cannot be legitimately obtained.</p>
+				<p>These are only available with cheats/server commands.</p>
+			</div>
+
+			<div id="info-migratable">
+				<p>Data values colored in green cannot be legitimately obtained,</p>
+				<p>unless you migrate from older version or use cheat/server commands.</p>
+			</div>
+
+			<div id="info-removed">
+				<p>Data values colored in green are removed from the game,</p>
+				<p>but still available with cheats/server commands.</p>
+			</div>
+		</div>
+
+		<div id="version-info">
+		</div>
+	</body>
+</html>
