@@ -4,7 +4,9 @@
 
 For now it can only be used to display block/items ID's (and their obtainability) in **Minecraft** Pre-Classic, Classic and Indev, but in the future it will be expanded up to newer versions (with varying level of support) and additional features.
 
-For running go to the section [over here](#running-on-local-web-server).
+If you want to see live version [go here](https://matriks404.github.io/mlc/).
+
+Alternatively, for running locally go to the section [over there](#running-locally).
 
 **NOT AN OFFICIAL MINECRAFT [PRODUCT/SERVICE/EVENT/etc.]. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT**
 
@@ -27,7 +29,7 @@ Following table shows current and planned functionality:
 
 * Website applies high contrast theme when applicable.
 
-## Running on local web server
+## Running locally
 
 1. Either:
    * Download a zip with the repository files by clicking green **Code** button and then clicking **Download ZIP** (simplest);
