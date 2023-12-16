@@ -15,7 +15,7 @@ async function loadConfig() {
 	config = await fetchJSONData('./config.json');
 
 	let versionNumber = config.versionNumber;
-	let versionType = congif.versionType;
+	let versionType = config.versionType;
 
 	let versionInfoElement = document.getElementById('version-info');
 	versionInfoElement.innerHTML = "v" + versionNumber + "-" + versionType
