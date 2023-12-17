@@ -18,8 +18,16 @@ async function loadConfig() {
 	let versionType = config.versionType;
 	let versionEasyName = config.versionEasyName;
 
+	let version_string = "";
+
+	if (versionType == "release") {
+		version_string = "v" + versionNumber + " (" + versionEasyName + ")";
+	} else {
+		version_string = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
+	}
+
 	let versionInfoElement = document.getElementById('version-info');
-	versionInfoElement.innerHTML = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
+	versionInfoElement.innerHTML = version_string;
 }
 
 async function loadVersionGroupList() {
