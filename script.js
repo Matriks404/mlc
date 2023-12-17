@@ -16,9 +16,10 @@ async function loadConfig() {
 
 	let versionNumber = config.versionNumber;
 	let versionType = config.versionType;
+	let versionEasyName = config.versionEasyName;
 
 	let versionInfoElement = document.getElementById('version-info');
-	versionInfoElement.innerHTML = "v" + versionNumber + "-" + versionType
+	versionInfoElement.innerHTML = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
 }
 
 async function loadVersionGroupList() {
