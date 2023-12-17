@@ -65,7 +65,7 @@ Functionality for versions will be added in waves by following priority:
 
 All of the original content is licensed under **CC BY-NC-SA 3.0** (compatible with [minecraft.wiki](https://minecraft.wiki/w/Minecraft_Wiki:Copyrights)) license.
 
-The design of the interface is based on the [this diagram](https://minecraft.wiki/w/File:DataValuesBeta.png) and the licensing for it applies.
+The design of the interface is based on the [this diagram](https://minecraft.wiki/images/archive/20110915061258%21DataValuesBeta.png?2d45e&format=original) and the licensing for it applies.
 
 Additionally this project uses in-game rendered **Minecraft** assets which are copyrighted by **[Mojang Studios](https://mojang.com)**, the terms of use for these assets can be found [here](https://www.minecraft.net/en-us/usage-guidelines#terms-brand_guidelines).
 
