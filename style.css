@@ -175,6 +175,25 @@ p {
 	color: darkred;
 }
 
+#legal-info > #dismiss-button {
+	position: absolute;
+
+	top: 8px;
+	right: 12px;
+
+	background: none;
+
+	font-size: 1.3em;
+	font-weight: bold;
+
+	cursor: pointer;
+	padding: 0 3px;
+}
+
+#legal-info > #dismiss-button:hover {
+	text-decoration: underline;
+}
+
 #version-info {
 	position: fixed;
 

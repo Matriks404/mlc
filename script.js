@@ -50,13 +50,6 @@ async function loadVersionGroupList() {
 	});
 }
 
-function removeSelectOptions(el) {
-   var i, length = el.options.length - 1;
-   for(i = length; i >= 0; i--) {
-      el.remove(i);
-   }
-}
-
 async function loadVersionList() {
 	let groupId = document.getElementById('version-groups').value;
 	console.log("Current version group ID: " + groupId);
@@ -296,6 +289,46 @@ function loadCurrentVersion() {
 	});
 }
 
+function reloadCheckboxes() {
+	let checkboxes = document.querySelectorAll(':checked');
+
+	checkboxes.forEach((el) => {
+		el.checked = false;
+	});
+
+	let excludeMigratableCheckbox = document.getElementById('exclude-migratable');
+	excludeMigratableCheckbox.disabled = "disabled";
+}
+
+function reloadVersionList() {
+	let versionList = document.getElementById('versions');
+	versionList.disabled = "disabled";
+}
+
+function removeSelectOptions(el) {
+   var i, length = el.options.length - 1;
+   for(i = length; i >= 0; i--) {
+      el.remove(i);
+   }
+}
+
+function handleLegalInfo() {
+	let legalInfoMessageBox = document.getElementById('legal-info');
+	let dismissButton = document.getElementById('dismiss-button');
+
+	// TODO: Not sure if we want to allow user to dismiss legal message forever.
+	/*if (localStorage.getItem('dismissed')) {
+		legalInfoMessageBox.style.display = "none";
+	}*/
+
+	dismissButton.addEventListener('click', function() {
+		legalInfoMessageBox.style.display = 'none';
+
+		// TODO: Not sure if we want to allow user to dismiss legal message forever.
+		/*localStorage.setItem('dismissed', true);*/
+	});
+}
+
 function updateSettingsStatus() {
 	areSettingsUpdated = true;
 }
@@ -304,17 +337,10 @@ loadConfig();
 loadVersionGroupList();
 
 document.addEventListener('DOMContentLoaded', () => {
-	let checkboxes = document.querySelectorAll(':checked');
+	reloadCheckboxes()
+	reloadVersionList()
 
-	checkboxes.forEach((el) => {
-		el.checked = false;
-	});
-
-	let versionList = document.getElementById('versions');
-	versionList.disabled = "disabled";
-
-	let excludeMigratableCheckbox = document.getElementById('exclude-migratable');
-	excludeMigratableCheckbox.disabled = "disabled";
+	handleLegalInfo()
 });
 
 document.getElementById('version-groups').addEventListener('change', loadVersionList);
