@@ -60,8 +60,8 @@ nav {
 }
 
 nav > fieldset {
-	max-width: 320px;
 	margin: auto;
+	max-width: 320px;
 
 	flex-flow: column nowrap;
 }
@@ -83,7 +83,7 @@ p {
 }
 
 #info {
-	margin-bottom: 100px;
+	margin-bottom: 160px;
 
 	flex-flow: column nowrap;
 
@@ -145,6 +145,34 @@ p {
 	gap: 16px;
 
 	flex-flow: column nowrap;
+}
+
+#legal-info {
+	position: fixed;
+
+	bottom: 48px;
+	left: 0;
+	right: 0;
+
+	margin: auto;
+	max-width: 320px;
+
+	border: 2px solid var(--ui-elements-color);
+	border-radius: 16px;
+
+	padding-bottom: 8px;
+
+	background-color: rgba(255, 255, 255, 0.5);
+
+	text-align: center;
+}
+
+#legal-info > h1 {
+	font-size: 1.25em;
+}
+
+#legal-info > strong {
+	color: darkred;
 }
 
 #version-info {
