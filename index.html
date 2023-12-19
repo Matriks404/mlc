@@ -8,6 +8,15 @@
 		<link rel="apple-touch-icon" type="image/png" href="images/blocks/preclassic/grass.png">
 		<link rel="stylesheet" href="style.css">
 		<script src="script.js"></script>
+
+		<!-- Load polyfills for IE11 and below -->
+		<script>
+			if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+				document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"><\/script>');
+
+				document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.js"><\/script>');
+			}
+		</script>
 	</head>
 
 	<body>

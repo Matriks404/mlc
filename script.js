@@ -3,54 +3,60 @@ let versionGroups = {};
 let currentVersionId = "";
 let areSettingsUpdated = false;
 
-async function fetchJSONData(filename) {
+function fetchJSONData(filename) {
 	return fetch(filename)
-	.then((res) => res.json())
-	.then((data) => {
+	.then(function (res) {
+		return res.json()
+	})
+	.then(function (data) {
 		return data;
 	});
 }
 
-async function loadConfig() {
-	config = await fetchJSONData('./config.json');
+function loadConfig() {
+	return fetchJSONData('./config.json')
+	.then(function (config) {
+		let versionNumber = config.versionNumber;
+		let versionType = config.versionType;
+		let versionEasyName = config.versionEasyName;
 
-	let versionNumber = config.versionNumber;
-	let versionType = config.versionType;
-	let versionEasyName = config.versionEasyName;
+		let version_string = "";
 
-	let version_string = "";
+		if (versionType == "release") {
+			version_string = "v" + versionNumber + " (" + versionEasyName + ")";
+		} else {
+			version_string = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
+		}
 
-	if (versionType == "release") {
-		version_string = "v" + versionNumber + " (" + versionEasyName + ")";
-	} else {
-		version_string = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
-	}
-
-	let versionInfoElement = document.getElementById('version-info');
-	versionInfoElement.innerHTML = version_string;
+		let versionInfoElement = document.getElementById('version-info');
+		versionInfoElement.innerHTML = version_string;
+	})
 }
 
-async function loadVersionGroupList() {
-	versionGroups = await fetchJSONData('./ids.json');
+function loadVersionGroupList() {
+	return fetchJSONData('./ids.json')
+	.then(function (groups) {
+		versionGroups = groups;
 
-	let el = document.getElementById('version-groups');
+		let el = document.getElementById('version-groups');
 
-	let emptyOption = document.createElement('option');
-	emptyOption.text = "Select group >>>";
-	emptyOption.setAttribute('value', 'empty');
-	el.add(emptyOption);
+		let emptyOption = document.createElement('option');
+		emptyOption.text = "Select group >>>";
+		emptyOption.setAttribute('value', 'empty');
+		el.add(emptyOption);
 
-	Object.keys(versionGroups).forEach((id) => {
-		let option = document.createElement('option');
-		option.setAttribute('value', id);
+		Object.keys(versionGroups).forEach(function (id) {
+			let option = document.createElement('option');
+			option.setAttribute('value', id);
 
-		option.text = versionGroups[id].name;
+			option.text = versionGroups[id].name;
 
-		el.add(option)
+			el.add(option)
+		});
 	});
 }
 
-async function loadVersionList() {
+function loadVersionList() {
 	let groupId = document.getElementById('version-groups').value;
 	console.log("Current version group ID: " + groupId);
 
@@ -67,7 +73,7 @@ async function loadVersionList() {
 
 	let versions = versionGroups[groupId].versions
 
-	Object.keys(versions).forEach((id) => {
+	Object.keys(versions).forEach(function (id) {
 		let option = document.createElement('option');
 		option.setAttribute('value', id);
 
@@ -82,7 +88,7 @@ function loadEntries(entries, el, entriesName) {
 	let excludeMigratable = document.getElementById('exclude-migratable').checked;
 	let displayAirBlock = document.getElementById('display-air-block').checked;
 
-	Object.keys(entries).forEach((id) => {
+	Object.keys(entries).forEach(function (id) {
 		if (excludeUnobtainable && entries[id].isUnobtainable) {
 			return;
 		}
@@ -146,7 +152,7 @@ function doEntriesContainEntryType(entries, type) {
 	let excludeMigratable = document.getElementById('exclude-migratable').checked;
 	let countAirBlock = document.getElementById('display-air-block').checked;
 
-	return Object.keys(entries).some((id) => {
+	return Object.keys(entries).some(function (id) {
 		if (excludeUnobtainable && entries[id].isUnobtainable) {
 			return false;
 		}
@@ -277,8 +283,8 @@ function loadCurrentVersion() {
 
 	let elementsWithTooltips = document.querySelectorAll('.with-tooltip')
 
-	elementsWithTooltips.forEach(el => {
-		el.addEventListener('mousemove', (e) => {
+	Array.prototype.forEach.call(elementsWithTooltips, function (el) {
+		el.addEventListener('mousemove', function (e) {
 			let x = (e.clientX + 18) + 'px';
 			let y = (e.clientY - 30) + 'px';
 
@@ -292,7 +298,7 @@ function loadCurrentVersion() {
 function reloadCheckboxes() {
 	let checkboxes = document.querySelectorAll(':checked');
 
-	checkboxes.forEach((el) => {
+	Array.prototype.forEach.call(checkboxes, function(el) {
 		el.checked = false;
 	});
 
@@ -333,7 +339,7 @@ function updateSettingsStatus() {
 	areSettingsUpdated = true;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
 	loadConfig();
 	loadVersionGroupList();
 
@@ -345,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('version-groups').addEventListener('change', loadVersionList);
 	document.getElementById('ok').addEventListener('click', loadCurrentVersion);
 
-	document.getElementById('exclude-unobtainable').addEventListener('change', () => {
+	document.getElementById('exclude-unobtainable').addEventListener('change', function () {
 		updateSettingsStatus()
 
 		let excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
