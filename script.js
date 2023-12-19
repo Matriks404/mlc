@@ -333,38 +333,40 @@ function updateSettingsStatus() {
 	areSettingsUpdated = true;
 }
 
-loadConfig();
-loadVersionGroupList();
-
 document.addEventListener('DOMContentLoaded', () => {
+	loadConfig();
+	loadVersionGroupList();
+
 	reloadCheckboxes()
 	reloadVersionList()
 
 	handleLegalInfo()
+
+	document.getElementById('version-groups').addEventListener('change', loadVersionList);
+	document.getElementById('ok').addEventListener('click', loadCurrentVersion);
+
+	document.getElementById('exclude-unobtainable').addEventListener('change', () => {
+		updateSettingsStatus()
+
+		let excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
+		let excludeMigratableCheckbox = document.getElementById('exclude-migratable');
+		let displayAirCheckbox = document.getElementById('display-air-block');
+
+		if (excludeUnobtainable) {
+			excludeMigratableCheckbox.disabled = "";
+
+			displayAirCheckbox.checked = false;
+			displayAirCheckbox.disabled = "disabled";
+		} else {
+			excludeMigratableCheckbox.checked = false;
+			excludeMigratableCheckbox.disabled = "disabled"
+
+			displayAirCheckbox.disabled = "";
+		}
+	});
+
+	document.getElementById('exclude-migratable').addEventListener('change', updateSettingsStatus);
+
+	document.getElementById('display-air-block').addEventListener('change', updateSettingsStatus);
 });
 
-document.getElementById('version-groups').addEventListener('change', loadVersionList);
-document.getElementById('ok').addEventListener('click', loadCurrentVersion);
-
-document.getElementById('exclude-unobtainable').addEventListener('change', () => {
-	updateSettingsStatus()
-
-	let excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
-	let excludeMigratableCheckbox = document.getElementById('exclude-migratable');
-	let displayAirCheckbox = document.getElementById('display-air-block');
-
-	if (excludeUnobtainable) {
-		excludeMigratableCheckbox.disabled = "";
-
-		displayAirCheckbox.checked = false;
-		displayAirCheckbox.disabled = "disabled";
-	} else {
-		excludeMigratableCheckbox.checked = false;
-		excludeMigratableCheckbox.disabled = "disabled"
-
-		displayAirCheckbox.disabled = "";
-	}
-});
-
-document.getElementById('exclude-migratable').addEventListener('change', updateSettingsStatus);
-document.getElementById('display-air-block').addEventListener('change', updateSettingsStatus);
