@@ -1,7 +1,7 @@
-let config = {};
-let versionGroups = {};
-let currentVersionId = "";
-let areSettingsUpdated = false;
+var config = {};
+var versionGroups = {};
+var currentVersionId = "";
+var areSettingsUpdated = false;
 
 function fetchJSONData(filename) {
 	return fetch(filename)
@@ -16,11 +16,11 @@ function fetchJSONData(filename) {
 function loadConfig() {
 	return fetchJSONData('./config.json')
 	.then(function (config) {
-		let versionNumber = config.versionNumber;
-		let versionType = config.versionType;
-		let versionEasyName = config.versionEasyName;
+		var versionNumber = config.versionNumber;
+		var versionType = config.versionType;
+		var versionEasyName = config.versionEasyName;
 
-		let version_string = "";
+		var version_string = "";
 
 		if (versionType == "release") {
 			version_string = "v" + versionNumber + " (" + versionEasyName + ")";
@@ -28,7 +28,7 @@ function loadConfig() {
 			version_string = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
 		}
 
-		let versionInfoElement = document.getElementById('version-info');
+		var versionInfoElement = document.getElementById('version-info');
 		versionInfoElement.innerHTML = version_string;
 	})
 }
@@ -38,15 +38,15 @@ function loadVersionGroupList() {
 	.then(function (groups) {
 		versionGroups = groups;
 
-		let el = document.getElementById('version-groups');
+		var el = document.getElementById('version-groups');
 
-		let emptyOption = document.createElement('option');
+		var emptyOption = document.createElement('option');
 		emptyOption.text = "Select group >>>";
 		emptyOption.setAttribute('value', 'empty');
 		el.add(emptyOption);
 
 		Object.keys(versionGroups).forEach(function (id) {
-			let option = document.createElement('option');
+			var option = document.createElement('option');
 			option.setAttribute('value', id);
 
 			option.text = versionGroups[id].name;
@@ -57,10 +57,10 @@ function loadVersionGroupList() {
 }
 
 function loadVersionList() {
-	let groupId = document.getElementById('version-groups').value;
+	var groupId = document.getElementById('version-groups').value;
 	console.log("Current version group ID: " + groupId);
 
-	let el = document.getElementById('versions');
+	var el = document.getElementById('versions');
 	removeSelectOptions(el);
 
 	if (groupId == 'empty') {
@@ -71,10 +71,10 @@ function loadVersionList() {
 
 	el.disabled = "";
 
-	let versions = versionGroups[groupId].versions
+	var versions = versionGroups[groupId].versions
 
 	Object.keys(versions).forEach(function (id) {
-		let option = document.createElement('option');
+		var option = document.createElement('option');
 		option.setAttribute('value', id);
 
 		option.text = versions[id].name;
@@ -84,9 +84,9 @@ function loadVersionList() {
 }
 
 function loadEntries(entries, el, entriesName) {
-	let excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
-	let excludeMigratable = document.getElementById('exclude-migratable').checked;
-	let displayAirBlock = document.getElementById('display-air-block').checked;
+	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
+	var excludeMigratable = document.getElementById('exclude-migratable').checked;
+	var displayAirBlock = document.getElementById('display-air-block').checked;
 
 	Object.keys(entries).forEach(function (id) {
 		if (excludeUnobtainable && entries[id].isUnobtainable) {
@@ -101,11 +101,11 @@ function loadEntries(entries, el, entriesName) {
 			return;
 		}
 
-		let entry = document.createElement('div');
+		var entry = document.createElement('div');
 		el.appendChild(entry);
 		entry.classList.add('entry');
 
-		let idElement = document.createElement('div');
+		var idElement = document.createElement('div');
 		entry.appendChild(idElement);
 		idElement.classList.add('id');
 
@@ -119,18 +119,18 @@ function loadEntries(entries, el, entriesName) {
 
 		idElement.innerHTML = id;
 
-		let imageContainer = document.createElement('div');
+		var imageContainer = document.createElement('div');
 		imageContainer.classList.add('with-tooltip');
 		entry.appendChild(imageContainer);
 
-		let img = document.createElement('img');
+		var img = document.createElement('img');
 		img.src = 'images/' + entriesName + '/' + entries[id].sprite + '.png';
 		imageContainer.appendChild(img);
 
-		let tooltip = document.createElement('div');
+		var tooltip = document.createElement('div');
 		tooltip.classList.add('tooltip');
 
-		let name = entries[id].name ? entries[id].name : "NO NAME";
+		var name = entries[id].name ? entries[id].name : "NO NAME";
 		tooltip.innerHTML = name;
 
 		imageContainer.appendChild(tooltip);
@@ -138,7 +138,7 @@ function loadEntries(entries, el, entriesName) {
 }
 
 function checkVersionProperty(elementName, version, property) {
-	let el = document.getElementById(elementName);
+	var el = document.getElementById(elementName);
 
 	if (version[property]) {
 		el.style.display = "block";
@@ -148,9 +148,9 @@ function checkVersionProperty(elementName, version, property) {
 }
 
 function doEntriesContainEntryType(entries, type) {
-	let excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
-	let excludeMigratable = document.getElementById('exclude-migratable').checked;
-	let countAirBlock = document.getElementById('display-air-block').checked;
+	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
+	var excludeMigratable = document.getElementById('exclude-migratable').checked;
+	var countAirBlock = document.getElementById('display-air-block').checked;
 
 	return Object.keys(entries).some(function (id) {
 		if (excludeUnobtainable && entries[id].isUnobtainable) {
@@ -183,7 +183,7 @@ function checkEntries(entries, el, type) {
 
 
 function loadCurrentVersion() {
-	let groupId = document.getElementById('version-groups').value;
+	var groupId = document.getElementById('version-groups').value;
 
 	if (groupId == 'empty') {
 		alert("To see available blocks and items, select appropriate version first.")
@@ -191,7 +191,7 @@ function loadCurrentVersion() {
 		return;
 	}
 
-	let id = document.getElementById('versions').value;
+	var id = document.getElementById('versions').value;
 
 	if (!areSettingsUpdated && id == currentVersionId) {
 		console.log("User tried to load version that is already loaded!")
@@ -204,7 +204,7 @@ function loadCurrentVersion() {
 	console.log("Current version ID: " + id);
 	currentVersionId = id;
 
-	let versions = versionGroups[groupId].versions
+	var versions = versionGroups[groupId].versions
 
 	if (!versions[id]) {
 		alert("Invalid game version!");
@@ -212,7 +212,7 @@ function loadCurrentVersion() {
 		return
 	}
 
-	let blocks = versions[id].blocks
+	var blocks = versions[id].blocks
 
 	if (!blocks || !Object.keys(blocks).length) {
 		alert(id + " game version blocks data is corrupted!");
@@ -220,7 +220,7 @@ function loadCurrentVersion() {
 		return
 	}
 
-	let info = document.getElementById('info');
+	var info = document.getElementById('info');
 	info.style.display = "flex";
 
 	checkVersionProperty('info-early-classic', versions[id], 'isEarlyClassic')
@@ -228,26 +228,26 @@ function loadCurrentVersion() {
 	checkVersionProperty('info-unknown-item-ids', versions[id], 'hasUnknownItemIds')
 	checkVersionProperty('info-presumed-item-ids', versions[id], 'hasPresumedItemIds')
 
-	let oldMainElement = document.getElementsByTagName('main')[0]
+	var oldMainElement = document.getElementsByTagName('main')[0]
 
 	if (oldMainElement) {
 		document.body.removeChild(oldMainElement);
 	}
 
-	let newMainElement = document.createElement('main');
+	var newMainElement = document.createElement('main');
 	document.body.insertBefore(newMainElement, info);
 
-	let blocksElement = document.createElement('fieldset');
+	var blocksElement = document.createElement('fieldset');
 	newMainElement.appendChild(blocksElement);
 	blocksElement.setAttribute('id', 'blocks');
 
-	let blocksLegendElement = document.createElement('legend');
+	var blocksLegendElement = document.createElement('legend');
 	blocksElement.appendChild(blocksLegendElement);
 	blocksLegendElement.innerHTML = 'Blocks';
 
-	let infoUnobtainableElement = document.getElementById('info-unobtainable');
-	let infoMigratableElement = document.getElementById('info-migratable');
-	let infoRemovedElement = document.getElementById('info-removed')
+	var infoUnobtainableElement = document.getElementById('info-unobtainable');
+	var infoMigratableElement = document.getElementById('info-migratable');
+	var infoRemovedElement = document.getElementById('info-removed')
 
 	checkEntries(blocks, infoUnobtainableElement, "isUnobtainable")
 	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration")
@@ -255,14 +255,14 @@ function loadCurrentVersion() {
 
 	loadEntries(blocks, blocksElement, "blocks");
 
-	let items = versions[id].items
+	var items = versions[id].items
 
 	if (items && Object.keys(items).length) {
-		let itemsElement = document.createElement('fieldset');
+		var itemsElement = document.createElement('fieldset');
 		newMainElement.appendChild(itemsElement);
 		itemsElement.setAttribute('id', 'items');
 
-		let itemsLegendElement = document.createElement('legend');
+		var itemsLegendElement = document.createElement('legend');
 		itemsElement.appendChild(itemsLegendElement);
 		itemsLegendElement.innerHTML = 'Items'
 
@@ -281,14 +281,14 @@ function loadCurrentVersion() {
 		loadEntries(items, itemsElement, "items")
 	}
 
-	let elementsWithTooltips = document.querySelectorAll('.with-tooltip')
+	var elementsWithTooltips = document.querySelectorAll('.with-tooltip')
 
 	Array.prototype.forEach.call(elementsWithTooltips, function (el) {
 		el.addEventListener('mousemove', function (e) {
-			let x = (e.clientX + 18) + 'px';
-			let y = (e.clientY - 30) + 'px';
+			var x = (e.clientX + 18) + 'px';
+			var y = (e.clientY - 30) + 'px';
 
-			let tooltip = el.querySelectorAll('.tooltip')[0]
+			var tooltip = el.querySelectorAll('.tooltip')[0]
 			tooltip.style.left = x;
 			tooltip.style.top = y;
 		});
@@ -296,18 +296,18 @@ function loadCurrentVersion() {
 }
 
 function reloadCheckboxes() {
-	let checkboxes = document.querySelectorAll(':checked');
+	var checkboxes = document.querySelectorAll(':checked');
 
 	Array.prototype.forEach.call(checkboxes, function(el) {
 		el.checked = false;
 	});
 
-	let excludeMigratableCheckbox = document.getElementById('exclude-migratable');
+	var excludeMigratableCheckbox = document.getElementById('exclude-migratable');
 	excludeMigratableCheckbox.disabled = "disabled";
 }
 
 function reloadVersionList() {
-	let versionList = document.getElementById('versions');
+	var versionList = document.getElementById('versions');
 	versionList.disabled = "disabled";
 }
 
@@ -319,8 +319,8 @@ function removeSelectOptions(el) {
 }
 
 function handleLegalInfo() {
-	let legalInfoMessageBox = document.getElementById('legal-info');
-	let dismissButton = document.getElementById('dismiss-button');
+	var legalInfoMessageBox = document.getElementById('legal-info');
+	var dismissButton = document.getElementById('dismiss-button');
 
 	// TODO: Not sure if we want to allow user to dismiss legal message forever.
 	/*if (localStorage.getItem('dismissed')) {
@@ -354,9 +354,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('exclude-unobtainable').addEventListener('change', function () {
 		updateSettingsStatus()
 
-		let excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
-		let excludeMigratableCheckbox = document.getElementById('exclude-migratable');
-		let displayAirCheckbox = document.getElementById('display-air-block');
+		var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
+		var excludeMigratableCheckbox = document.getElementById('exclude-migratable');
+		var displayAirCheckbox = document.getElementById('display-air-block');
 
 		if (excludeUnobtainable) {
 			excludeMigratableCheckbox.disabled = "";
