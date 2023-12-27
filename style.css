@@ -55,23 +55,6 @@ main {
 	justify-content: center;
 }
 
-nav {
-	margin-bottom: 24px;
-}
-
-nav > fieldset {
-	margin: auto;
-	max-width: 320px;
-
-	flex-flow: column nowrap;
-}
-
-nav > fieldset button {
-	margin: auto;
-
-	padding: 3px 8px 3px 8px;
-}
-
 legend {
 	margin: 0 auto;
 
@@ -194,6 +177,20 @@ p {
 	text-decoration: underline;
 }
 
+#settings {
+	margin: 0 auto 24px auto;
+	
+	max-width: 320px;
+
+	flex-flow: column nowrap;
+}
+
+#settings > button {
+	margin: auto;
+
+	padding: 3px 8px 3px 8px;
+}
+
 #version-info {
 	position: fixed;
 
@@ -245,17 +242,13 @@ p {
 	color: var(--color-removed);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
 	main {
 		margin-bottom: 18px;
 
 		flex-flow: row wrap;
 
 		row-gap: 16px;
-	}
-
-	nav > form {
-		justify-content: flex-start;
 	}
 
 	p {

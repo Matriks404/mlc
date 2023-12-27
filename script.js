@@ -228,14 +228,15 @@ function loadCurrentVersion() {
 	checkVersionProperty('info-unknown-item-ids', versions[id], 'hasUnknownItemIds')
 	checkVersionProperty('info-presumed-item-ids', versions[id], 'hasPresumedItemIds')
 
+	let containerElement = document.getElementById('container');
 	var oldMainElement = document.getElementsByTagName('main')[0]
 
 	if (oldMainElement) {
-		document.body.removeChild(oldMainElement);
+		container.removeChild(oldMainElement);
 	}
 
 	var newMainElement = document.createElement('main');
-	document.body.insertBefore(newMainElement, info);
+	container.insertBefore(newMainElement, info);
 
 	var blocksElement = document.createElement('fieldset');
 	newMainElement.appendChild(blocksElement);
