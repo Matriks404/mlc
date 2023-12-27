@@ -286,10 +286,23 @@ function loadCurrentVersion() {
 
 	Array.prototype.forEach.call(elementsWithTooltips, function (el) {
 		el.addEventListener('mousemove', function (e) {
-			var x = (e.clientX + 18) + 'px';
-			var y = (e.clientY - 30) + 'px';
+			const xOffset = 18;
+			const yOffset = -30;
+			
+			var x = (e.clientX + xOffset) + 'px';
+			var y = (e.clientY + yOffset) + 'px';
 
 			var tooltip = el.querySelectorAll('.tooltip')[0]
+			var tooltipWidth = tooltip.offsetWidth;
+			var windowWidth = window.innerWidth;
+			var spaceOnRight = windowWidth - (e.clientX + tooltipWidth + xOffset);
+			
+			// Check if there's not enough space on the right. Let it be 4px to be sure nothing breaks.
+			if (spaceOnRight < 4) {
+				// Push the tooltip slightly to the left
+				x = (e.clientX + spaceOnRight) + 'px';
+			}
+			
 			tooltip.style.left = x;
 			tooltip.style.top = y;
 		});
