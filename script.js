@@ -119,9 +119,13 @@ function loadEntries(entries, el, entriesName) {
 
 		idElement.innerHTML = id;
 
+		var elementWithTooltip = document.createElement('div');
+		elementWithTooltip.classList.add('with-tooltip');
+		entry.appendChild(elementWithTooltip);
+
 		var imageContainer = document.createElement('div');
-		imageContainer.classList.add('with-tooltip');
-		entry.appendChild(imageContainer);
+		imageContainer.classList.add('img-container');
+		elementWithTooltip.appendChild(imageContainer);
 
 		var img = document.createElement('img');
 		img.src = 'images/' + entriesName + '/' + entries[id].sprite + '.png';
@@ -133,7 +137,7 @@ function loadEntries(entries, el, entriesName) {
 		var name = entries[id].name ? entries[id].name : "NO NAME";
 		tooltip.innerHTML = name;
 
-		imageContainer.appendChild(tooltip);
+		elementWithTooltip.appendChild(tooltip);
 	});
 }
 
@@ -228,7 +232,7 @@ function loadCurrentVersion() {
 	checkVersionProperty('info-unknown-item-ids', versions[id], 'hasUnknownItemIds')
 	checkVersionProperty('info-presumed-item-ids', versions[id], 'hasPresumedItemIds')
 
-	let containerElement = document.getElementById('container');
+	var containerElement = document.getElementById('container');
 	var oldMainElement = document.getElementsByTagName('main')[0]
 
 	if (oldMainElement) {
@@ -286,9 +290,9 @@ function loadCurrentVersion() {
 
 	Array.prototype.forEach.call(elementsWithTooltips, function (el) {
 		el.addEventListener('mousemove', function (e) {
-			const xOffset = 18;
-			const yOffset = -30;
-			
+			var xOffset = 18;
+			var yOffset = -30;
+
 			var x = (e.clientX + xOffset) + 'px';
 			var y = (e.clientY + yOffset) + 'px';
 
@@ -296,13 +300,13 @@ function loadCurrentVersion() {
 			var tooltipWidth = tooltip.offsetWidth;
 			var windowWidth = window.innerWidth;
 			var spaceOnRight = windowWidth - (e.clientX + tooltipWidth + xOffset);
-			
+
 			// Check if there's not enough space on the right. Let it be 4px to be sure nothing breaks.
 			if (spaceOnRight < 4) {
 				// Push the tooltip slightly to the left
 				x = (e.clientX + spaceOnRight) + 'px';
 			}
-			
+
 			tooltip.style.left = x;
 			tooltip.style.top = y;
 		});

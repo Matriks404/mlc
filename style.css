@@ -33,6 +33,10 @@ fieldset {
 	column-gap: 4px;
 }
 
+img {
+	image-rendering: pixelated;
+}
+
 main > fieldset {
 	width: 320px;
 
@@ -41,10 +45,6 @@ main > fieldset {
 
 main > fieldset:only-of-type {
 	width: 644px;
-}
-
-img {
-	image-rendering: pixelated;
 }
 
 main {
@@ -179,7 +179,7 @@ p {
 
 #settings {
 	margin: 0 auto 24px auto;
-	
+
 	max-width: 320px;
 
 	flex-flow: column nowrap;
@@ -242,6 +242,39 @@ p {
 	color: var(--color-removed);
 }
 
+.img-container {
+	width: 32px;
+	height: 34px;
+
+	position: relative;
+}
+
+.with-tooltip .tooltip {
+	visibility: hidden;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	z-index: 1;
+
+	background-color: rgba(0, 0, 0, 0.755);
+
+	padding: 6px 6px;
+
+	text-align: center;
+	line-height: 10px;
+	height: 11px;
+
+	font-weight: bold;
+	color: white;
+	text-shadow: 1px 1px 1px #3f3f3f;
+}
+
+.with-tooltip:hover .tooltip {
+	visibility: visible;
+}
+
 @media (max-width: 479px) {
 	main {
 		margin-bottom: 18px;
@@ -268,28 +301,4 @@ p {
 	body {
 		font-weight: bold;
 	}
-}
-
-.with-tooltip .tooltip {
-	visibility: hidden;
-
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	background-color: rgba(0, 0, 0, 0.755);
-
-	text-align: center;
-	line-height: 10px;
-	height: 11px;
-
-	font-weight: bold;
-	color: white;
-	text-shadow: 1px 1px 1px #3f3f3f;
-
-	padding: 6px 6px;
-}
-
-.with-tooltip:hover .tooltip {
-	visibility: visible;
 }
