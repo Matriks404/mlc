@@ -6,7 +6,7 @@ var areSettingsUpdated = false;
 function fetchJSONData(filename) {
 	return fetch(filename)
 	.then(function (res) {
-		return res.json()
+		return res.json();
 	})
 	.then(function (data) {
 		return data;
@@ -30,7 +30,7 @@ function loadConfig() {
 
 		var versionInfoElement = document.getElementById('version-info');
 		versionInfoElement.innerHTML = version_string;
-	})
+	});
 }
 
 function loadVersionGroupList() {
@@ -51,7 +51,7 @@ function loadVersionGroupList() {
 
 			option.text = versionGroups[id].name;
 
-			el.add(option)
+			el.add(option);
 		});
 	});
 }
@@ -71,7 +71,7 @@ function loadVersionList() {
 
 	el.disabled = "";
 
-	var versions = versionGroups[groupId].versions
+	var versions = versionGroups[groupId].versions;
 
 	Object.keys(versions).forEach(function (id) {
 		var option = document.createElement('option');
@@ -79,7 +79,7 @@ function loadVersionList() {
 
 		option.text = versions[id].name;
 
-		el.add(option)
+		el.add(option);
 	});
 }
 
@@ -179,9 +179,9 @@ function doEntriesContainEntryType(entries, type) {
 
 function checkEntries(entries, el, type) {
 	if (doEntriesContainEntryType(entries, type)) {
-		el.style.display = "block"
+		el.style.display = "block";
 	} else {
-		el.style.display = "none"
+		el.style.display = "none";
 	}
 }
 
@@ -190,7 +190,7 @@ function loadCurrentVersion() {
 	var groupId = document.getElementById('version-groups').value;
 
 	if (groupId == 'empty') {
-		alert("To see available blocks and items, select appropriate version first.")
+		alert("To see available blocks and items, select appropriate version first.");
 
 		return;
 	}
@@ -198,7 +198,7 @@ function loadCurrentVersion() {
 	var id = document.getElementById('versions').value;
 
 	if (!areSettingsUpdated && id == currentVersionId) {
-		console.log("User tried to load version that is already loaded!")
+		console.log("User tried to load version that is already loaded!");
 
 		return;
 	}
@@ -208,32 +208,32 @@ function loadCurrentVersion() {
 	console.log("Current version ID: " + id);
 	currentVersionId = id;
 
-	var versions = versionGroups[groupId].versions
+	var versions = versionGroups[groupId].versions;
 
 	if (!versions[id]) {
 		alert("Invalid game version!");
 
-		return
+		return;
 	}
 
-	var blocks = versions[id].blocks
+	var blocks = versions[id].blocks;
 
 	if (!blocks || !Object.keys(blocks).length) {
 		alert(id + " game version blocks data is corrupted!");
 
-		return
+		return;
 	}
 
 	var info = document.getElementById('info');
 	info.style.display = "flex";
 
-	checkVersionProperty('info-early-classic', versions[id], 'isEarlyClassic')
-	checkVersionProperty('info-unknown-block-renders', versions[id], 'hasUnknownBlockRenders')
-	checkVersionProperty('info-unknown-item-ids', versions[id], 'hasUnknownItemIds')
-	checkVersionProperty('info-presumed-item-ids', versions[id], 'hasPresumedItemIds')
+	checkVersionProperty('info-early-classic', versions[id], 'isEarlyClassic');
+	checkVersionProperty('info-unknown-block-renders', versions[id], 'hasUnknownBlockRenders');
+	checkVersionProperty('info-unknown-item-ids', versions[id], 'hasUnknownItemIds');
+	checkVersionProperty('info-presumed-item-ids', versions[id], 'hasPresumedItemIds');
 
 	var containerElement = document.getElementById('container');
-	var oldMainElement = document.getElementsByTagName('main')[0]
+	var oldMainElement = document.getElementsByTagName('main')[0];
 
 	if (oldMainElement) {
 		container.removeChild(oldMainElement);
@@ -252,15 +252,15 @@ function loadCurrentVersion() {
 
 	var infoUnobtainableElement = document.getElementById('info-unobtainable');
 	var infoMigratableElement = document.getElementById('info-migratable');
-	var infoRemovedElement = document.getElementById('info-removed')
+	var infoRemovedElement = document.getElementById('info-removed');
 
-	checkEntries(blocks, infoUnobtainableElement, "isUnobtainable")
-	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration")
-	checkEntries(blocks, infoRemovedElement, "isRemoved")
+	checkEntries(blocks, infoUnobtainableElement, "isUnobtainable");
+	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration");
+	checkEntries(blocks, infoRemovedElement, "isRemoved");
 
 	loadEntries(blocks, blocksElement, "blocks");
 
-	var items = versions[id].items
+	var items = versions[id].items;
 
 	if (items && Object.keys(items).length) {
 		var itemsElement = document.createElement('fieldset');
@@ -269,24 +269,24 @@ function loadCurrentVersion() {
 
 		var itemsLegendElement = document.createElement('legend');
 		itemsElement.appendChild(itemsLegendElement);
-		itemsLegendElement.innerHTML = 'Items'
+		itemsLegendElement.innerHTML = 'Items';
 
 		if (infoUnobtainableElement.style.display == "none") {
-			checkEntries(items, infoUnobtainableElement, "isUnobtainable")
+			checkEntries(items, infoUnobtainableElement, "isUnobtainable");
 		}
 
 		if (infoMigratableElement.style.display == "none") {
-			checkEntries(items, infoMigratableElement, "isObtainableByMigration")
+			checkEntries(items, infoMigratableElement, "isObtainableByMigration");
 		}
 
 		if (infoRemovedElement.style.display == "none") {
-			checkEntries(items, infoRemovedElement, "isRemoved")
+			checkEntries(items, infoRemovedElement, "isRemoved");
 		}
 
-		loadEntries(items, itemsElement, "items")
+		loadEntries(items, itemsElement, "items");
 	}
 
-	var elementsWithTooltips = document.querySelectorAll('.with-tooltip')
+	var elementsWithTooltips = document.querySelectorAll('.with-tooltip');
 
 	Array.prototype.forEach.call(elementsWithTooltips, function (el) {
 		el.addEventListener('mousemove', function (e) {
@@ -296,7 +296,7 @@ function loadCurrentVersion() {
 			var x = (e.clientX + xOffset) + 'px';
 			var y = (e.clientY + yOffset) + 'px';
 
-			var tooltip = el.querySelectorAll('.tooltip')[0]
+			var tooltip = el.querySelectorAll('.tooltip')[0];
 			var tooltipWidth = tooltip.offsetWidth;
 			var windowWidth = window.innerWidth;
 			var spaceOnRight = windowWidth - (e.clientX + tooltipWidth + xOffset);
@@ -361,16 +361,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	loadConfig();
 	loadVersionGroupList();
 
-	reloadCheckboxes()
-	reloadVersionList()
+	reloadCheckboxes();
+	reloadVersionList();
 
-	handleLegalInfo()
+	handleLegalInfo();
 
 	document.getElementById('version-groups').addEventListener('change', loadVersionList);
 	document.getElementById('ok').addEventListener('click', loadCurrentVersion);
 
 	document.getElementById('exclude-unobtainable').addEventListener('change', function () {
-		updateSettingsStatus()
+		updateSettingsStatus();
 
 		var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 		var excludeMigratableCheckbox = document.getElementById('exclude-migratable');
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			displayAirCheckbox.disabled = "disabled";
 		} else {
 			excludeMigratableCheckbox.checked = false;
-			excludeMigratableCheckbox.disabled = "disabled"
+			excludeMigratableCheckbox.disabled = "disabled";
 
 			displayAirCheckbox.disabled = "";
 		}
