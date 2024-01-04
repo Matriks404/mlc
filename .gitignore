@@ -1,0 +1,6 @@
+__docs/
+__test/
+source/images/*/beta/
+source/achievements.json
+source/ids_betatest.json
+source/style*
