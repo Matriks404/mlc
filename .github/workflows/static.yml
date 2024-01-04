@@ -34,8 +34,8 @@ jobs:
         
       - name: Generate CSS
         run: |
-          chmod +x ./scripts/Build.Linux.sh
-          ./scripts/Build.Linux.sh
+          chmod +x ./scripts/Build.Unix.sh
+          ./scripts/Build.Unix.sh
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
