@@ -32,10 +32,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Generate CSS
-        run: |
-          chmod +x ./scripts/Build.Unix.sh
-          ./scripts/Build.Unix.sh
+      - name: Compile CSS from SCSS files
+        uses: gha-utilities/sass-build@v0.5.1
+        with:
+          source: source_scss/main.scss
+          destination: source/style.css
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
