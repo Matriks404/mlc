@@ -47,7 +47,7 @@ Following table shows current and planned functionality:
 
      * On Windows you can use [PHP built-in web server](https://windows.php.net/download#php-8.3). Select appropriate version and install it. Alternatively use anything else, as it should work with any HTTP server.
 
-       * If you use PHP built-in server you can use running script in the `scripts/` directory called `Run.Windows.bat`, just make sure before running (using any text editor) that the path to your `php` directory is correct (it probably isn't).
+       * If you use PHP built-in server you can run script in the `scripts/` directory called `Run.Windows.bat`, but before running make sure that paths to your `php` directory and mlc repository are correct, which you can do by editing the file in any text editor.
 
      * On Unix-like operating systems (e.g. Linux, any BSD or macOS) you can figure it out on your own.
 
