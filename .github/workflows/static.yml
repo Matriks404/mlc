@@ -36,7 +36,7 @@ jobs:
         uses: gha-utilities/sass-build@v0.5.1
         with:
           source: source_scss/main.scss
-          destination: source/style.css
+          destination: /tmp/mlc/assets/source/main.css
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -46,7 +46,8 @@ jobs:
         with:
           # Upload `source/`.
           path: |
-            'source'
+            './source'
+            '/tmp/mlc/assets/source'
           
       - name: Deploy to GitHub Pages
         id: deployment
