@@ -43,7 +43,7 @@ Following table shows current and planned functionality:
 
 	* On Unix-like operating systems (e.g. Linux, any BSD or macOS) install Sass using your package manager and using terminal go to `scripts/` directory and execute `./Build.Unix.sh`.
 
-3. Run a web server on your local machine (or somewhere else) using any server software you like to use with this project's `source/` directory as a target location.
+3. Run a web server on your local machine (or somewhere else) using any server software you like to use with this project's `dist/` directory as a target location.
 
      * On Windows you can use [PHP built-in web server](https://windows.php.net/download#php-8.3). Select appropriate version and install it. Alternatively use anything else, as it should work with any HTTP server.
 
