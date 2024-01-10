@@ -250,6 +250,10 @@ function loadCurrentVersion() {
 	blocksElement.appendChild(blocksLegendElement);
 	blocksLegendElement.innerHTML = 'Blocks';
 
+	var blocksContentElement = document.createElement('div');
+	blocksElement.appendChild(blocksContentElement);
+	blocksContentElement.classList.add('fieldset-content');
+
 	var infoUnobtainableElement = document.getElementById('info-unobtainable');
 	var infoMigratableElement = document.getElementById('info-migratable');
 	var infoRemovedElement = document.getElementById('info-removed');
@@ -258,7 +262,7 @@ function loadCurrentVersion() {
 	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration");
 	checkEntries(blocks, infoRemovedElement, "isRemoved");
 
-	loadEntries(blocks, blocksElement, "blocks");
+	loadEntries(blocks, blocksContentElement, "blocks");
 
 	var items = versions[id].items;
 
@@ -270,6 +274,10 @@ function loadCurrentVersion() {
 		var itemsLegendElement = document.createElement('legend');
 		itemsElement.appendChild(itemsLegendElement);
 		itemsLegendElement.innerHTML = 'Items';
+
+		var itemsContentElement = document.createElement('div');
+		itemsElement.appendChild(itemsContentElement);
+		itemsContentElement.classList.add('fieldset-content');
 
 		if (infoUnobtainableElement.style.display == "none") {
 			checkEntries(items, infoUnobtainableElement, "isUnobtainable");
@@ -283,7 +291,7 @@ function loadCurrentVersion() {
 			checkEntries(items, infoRemovedElement, "isRemoved");
 		}
 
-		loadEntries(items, itemsElement, "items");
+		loadEntries(items, itemsContentElement, "items");
 	}
 
 	var elementsWithTooltips = document.querySelectorAll('.with-tooltip');
