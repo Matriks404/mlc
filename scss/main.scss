@@ -127,11 +127,10 @@ p {
 	position: fixed;
 
 	bottom: 48px;
-	left: 0;
-	right: 0;
+	left: 50%;
+	transform: translateX(-50%);
 
-	margin: auto;
-	max-width: 320px;
+	width: 320px;
 
 	border: 2px solid $default-ui-elements-color;
 	border-radius: 16px;
