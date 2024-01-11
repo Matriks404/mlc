@@ -1,5 +1,5 @@
 __docs/
-dist/images/*/beta/
-dist/achievements.json
-dist/ids_betatest.json
-dist/style*
+site/images/*/beta/
+site/achievements.json
+site/ids_betatest.json
+site/style*

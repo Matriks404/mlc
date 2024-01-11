@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sass ../scss/main.scss ../dist/style.css
+sass ../scss/main.scss ../site/style.css
