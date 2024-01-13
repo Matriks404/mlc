@@ -34,6 +34,7 @@ function loadConfig() {
 }
 
 function loadVersionGroupList() {
+
 	return fetchJSONData('./ids.json')
 	.then(function (groups) {
 		versionGroups = groups;
@@ -46,6 +47,14 @@ function loadVersionGroupList() {
 		el.add(emptyOption);
 
 		Object.keys(versionGroups).forEach(function (id) {
+			var versions = versionGroups[id].versions;
+
+			if (!versions || !Object.keys(versions).length) {
+				console.log(id + " version group data is corrupted!");
+
+				return;
+			}
+
 			var option = document.createElement('option');
 			option.setAttribute('value', id);
 
