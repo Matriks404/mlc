@@ -34,7 +34,6 @@ function loadConfig() {
 }
 
 function loadVersionGroupList() {
-
 	return fetchJSONData('./ids.json')
 	.then(function (groups) {
 		versionGroups = groups;
@@ -58,7 +57,15 @@ function loadVersionGroupList() {
 			var option = document.createElement('option');
 			option.setAttribute('value', id);
 
-			option.text = versionGroups[id].name;
+			var name;
+
+			if (versionGroups[id].name) {
+				name = versionGroups[id].name
+			} else {
+				name = "UNTITLED GROUP [" + id + "]"
+			}
+
+			option.text = name;
 
 			el.add(option);
 		});
@@ -86,7 +93,15 @@ function loadVersionList() {
 		var option = document.createElement('option');
 		option.setAttribute('value', id);
 
-		option.text = versions[id].name;
+		var name;
+
+		if (versions[id].name) {
+			name = versions[id].name
+		} else {
+			name = "UNTITLED VERSION [" + id + "]"
+		}
+
+		option.text = name;
 
 		el.add(option);
 	});
