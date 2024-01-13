@@ -252,7 +252,7 @@ function loadCurrentVersion() {
 	info.style.display = "flex";
 
 	checkVersionProperty('info-early-classic', versions[id], 'isEarlyClassic');
-	checkVersionProperty('info-unknown-block-renders', versions[id], 'hasUnknownBlockRenders');
+	checkVersionProperty('info-unknown-renders', versions[id], 'hasUnknownRenders');
 	checkVersionProperty('info-unknown-item-ids', versions[id], 'hasUnknownItemIds');
 	checkVersionProperty('info-presumed-item-ids', versions[id], 'hasPresumedItemIds');
 
