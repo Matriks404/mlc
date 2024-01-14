@@ -153,7 +153,13 @@ function loadEntries(entries, el, entriesName) {
 		elementWithTooltip.appendChild(imageContainer);
 
 		var img = document.createElement('img');
-		img.src = 'images/' + entriesName + '/' + entries[id].sprite + '.png';
+
+		if (entries[id].sprite) {
+			img.src = 'images/' + entriesName + '/' + entries[id].sprite + '.png';
+		} else {
+			img.src = 'images/unknown.png';
+		}
+
 		imageContainer.appendChild(img);
 
 		var tooltip = document.createElement('div');
