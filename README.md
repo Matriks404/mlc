@@ -20,8 +20,8 @@ Following table shows current and planned functionality:
 
 |                  | Pre-Classic | Classic | Indev | Infdev | Alpha | Beta | Final (pre-flattening[^1]) | Final (after-flattening[^2]) |
 | :--------------: | :---------: | :-----: | :---: | :----: | :---: | :--: | :------------------------: | :--------------------------: |
-|  **Block ID's**  |      ✔️      |    ✔️    | ✔️[^3] |   ❌    |   ❌   |  ❌   |             ❌              |              ❌               |
-|  **Item ID's**   |      🚫      |    🚫    | ✔️[^3] |   ❌    |   ❌   |  ❌   |             ❌              |              ❌               |
+|  **Block ID's**  |      ✔️      |    ✔️    | ✔️[^3] |   🔨[^4]    |   ❌   |  ❌   |             ❌              |              ❌               |
+|  **Item ID's**   |      🚫      |    🚫    | ✔️[^3] |   🔨[^4]    |   ❌   |  ❌   |             ❌              |              ❌               |
 |   **Mob ID'S**   |      ❓      |    ❓    |   ❓   |   ❓    |   ❓   |  ❓   |             ❌              |              ❌               |
 | **Achievements** |      🚫      |    🚫    |   🚫   |   🚫    |   🚫   |  ❌   |             ❌              |              ❌               |
 
@@ -80,4 +80,6 @@ Additionally this project uses in-game rendered **Minecraft** assets which are c
 
 [^2]: Applies to versions after (and including) Minecraft 1.13 snapshot 17w47a.
 
-[^3]: Minecraft Indev 0.31 versions: 20091231-2, 20100104 and 20100110 have unknown block renders and unknown block ID's.
+[^3]: Minecraft Indev 0.31 versions: 20091231-2, 20100104 and 20100110 have unknown block renders and unknown item ID's.
+
+[^4]: Minecraft Infdev versions: 20100227-2, 20100313 and 20100316 have unknown block/item renders.
