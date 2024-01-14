@@ -1,6 +1,7 @@
 var config = {};
 var versionGroups = {};
-var currentVersionId = "";
+var loadedVersionGroupId = "";
+var loadedVersionId = "";
 var areSettingsUpdated = false;
 
 function fetchJSONData(filename) {
@@ -209,7 +210,6 @@ function checkEntries(entries, el, type) {
 	}
 }
 
-
 function loadCurrentVersion() {
 	var groupId = document.getElementById('version-groups').value;
 
@@ -221,7 +221,7 @@ function loadCurrentVersion() {
 
 	var id = document.getElementById('versions').value;
 
-	if (!areSettingsUpdated && id == currentVersionId) {
+	if (!areSettingsUpdated && groupId == loadedVersionGroupId && id == loadedVersionId) {
 		console.log("User tried to load version that is already loaded!");
 
 		return;
@@ -229,8 +229,9 @@ function loadCurrentVersion() {
 
 	areSettingsUpdated = false;
 
-	console.log("Current version ID: " + id);
-	currentVersionId = id;
+	console.log("Loaded version: " + groupId + "/" + id);
+	loadedVersionGroupId = groupId;
+	loadedVersionId = id;
 
 	var versions = versionGroups[groupId].versions;
 
