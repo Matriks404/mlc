@@ -507,26 +507,26 @@
 				},
 
 				"items": {
-					"1?": { "name": "Leather Cap", "sprite": "leather_cap" },
-					"2?": { "name": "Studded Helmet", "sprite": "studded_helmet" },
-					"3?": { "name": "Chain Helmet", "sprite": "chain_helmet" },
-					"4?": { "name": "Iron Helmet", "sprite": "iron_helmet" },
-					"5?": { "name": "Apple", "sprite": "apple" },
-					"6?": { "name": "Leather Tunic", "sprite": "leather_tunic" },
-					"7?": { "name": "Studded Chestplate", "sprite": "studded_chestplate" },
-					"8?": { "name": "Chain Chestplate", "sprite": "chain_chestplate" },
-					"9?": { "name": "Iron Chestplate", "sprite": "iron_chestplate" },
-					"10?": { "name": "Iron Sword", "sprite": "iron_sword" },
-					"11?": { "name": "Leather Pants", "sprite": "leather_pants" },
-					"12?": { "name": "Studded Leggings", "sprite": "studded_leggings" },
-					"13?": { "name": "Chain Leggings", "sprite": "chain_leggings" },
-					"14?": { "name": "Iron Leggings", "sprite": "iron_leggings" },
-					"15?": { "name": "Quiver", "sprite": "quiver" },
-					"16?": { "name": "Leather Boots", "sprite": "leather_boots" },
-					"17?": { "name": "Studded Boots", "sprite": "studded_boots" },
-					"18?": { "name": "Chain Boots", "sprite": "chain_boots" },
-					"19?": { "name": "Iron Boots", "sprite": "iron_boots" },
-					"20?": { "name": "Iron Shovel", "sprite": "iron_shovel" }
+					"1": { "name": "Leather Cap", "sprite": "leather_cap" },
+					"2": { "name": "Studded Helmet", "sprite": "studded_helmet" },
+					"3": { "name": "Chain Helmet", "sprite": "chain_helmet" },
+					"4": { "name": "Iron Helmet", "sprite": "iron_helmet" },
+					"5": { "name": "Apple", "sprite": "apple" },
+					"6": { "name": "Leather Tunic", "sprite": "leather_tunic" },
+					"7": { "name": "Studded Chestplate", "sprite": "studded_chestplate" },
+					"8": { "name": "Chain Chestplate", "sprite": "chain_chestplate" },
+					"9": { "name": "Iron Chestplate", "sprite": "iron_chestplate" },
+					"10": { "name": "Iron Sword", "sprite": "iron_sword" },
+					"11": { "name": "Leather Pants", "sprite": "leather_pants" },
+					"12": { "name": "Studded Leggings", "sprite": "studded_leggings" },
+					"13": { "name": "Chain Leggings", "sprite": "chain_leggings" },
+					"14": { "name": "Iron Leggings", "sprite": "iron_leggings" },
+					"15": { "name": "Quiver", "sprite": "quiver" },
+					"16": { "name": "Leather Boots", "sprite": "leather_boots" },
+					"17": { "name": "Studded Boots", "sprite": "studded_boots" },
+					"18": { "name": "Chain Boots", "sprite": "chain_boots" },
+					"19": { "name": "Iron Boots", "sprite": "iron_boots" },
+					"20": { "name": "Iron Shovel", "sprite": "iron_shovel" }
 				}
 			},
 
@@ -590,26 +590,26 @@
 				},
 
 				"items": {
-					"1?": { "name": "Leather Cap", "sprite": "leather_cap" },
-					"2?": { "name": "Studded Helmet", "sprite": "studded_helmet" },
-					"3?": { "name": "Chain Helmet", "sprite": "chain_helmet" },
-					"4?": { "name": "Iron Helmet", "sprite": "iron_helmet" },
-					"5?": { "name": "Apple", "sprite": "apple" },
-					"6?": { "name": "Leather Tunic", "sprite": "leather_tunic" },
-					"7?": { "name": "Studded Chestplate", "sprite": "studded_chestplate" },
-					"8?": { "name": "Chain Chestplate", "sprite": "chain_chestplate" },
-					"9?": { "name": "Iron Chestplate", "sprite": "iron_chestplate" },
-					"10?": { "name": "Iron Sword", "sprite": "iron_sword" },
-					"11?": { "name": "Leather Pants", "sprite": "leather_pants" },
-					"12?": { "name": "Studded Leggings", "sprite": "studded_leggings" },
-					"13?": { "name": "Chain Leggings", "sprite": "chain_leggings" },
-					"14?": { "name": "Iron Leggings", "sprite": "iron_leggings" },
-					"15?": { "name": "Quiver", "sprite": "quiver" },
-					"16?": { "name": "Leather Boots", "sprite": "leather_boots" },
-					"17?": { "name": "Studded Boots", "sprite": "studded_boots" },
-					"18?": { "name": "Chain Boots", "sprite": "chain_boots" },
-					"19?": { "name": "Iron Boots", "sprite": "iron_boots" },
-					"20?": { "name": "Iron Shovel", "sprite": "iron_shovel" }
+					"1": { "name": "Leather Cap", "sprite": "leather_cap" },
+					"2": { "name": "Studded Helmet", "sprite": "studded_helmet" },
+					"3": { "name": "Chain Helmet", "sprite": "chain_helmet" },
+					"4": { "name": "Iron Helmet", "sprite": "iron_helmet" },
+					"5": { "name": "Apple", "sprite": "apple" },
+					"6": { "name": "Leather Tunic", "sprite": "leather_tunic" },
+					"7": { "name": "Studded Chestplate", "sprite": "studded_chestplate" },
+					"8": { "name": "Chain Chestplate", "sprite": "chain_chestplate" },
+					"9": { "name": "Iron Chestplate", "sprite": "iron_chestplate" },
+					"10": { "name": "Iron Sword", "sprite": "iron_sword" },
+					"11": { "name": "Leather Pants", "sprite": "leather_pants" },
+					"12": { "name": "Studded Leggings", "sprite": "studded_leggings" },
+					"13": { "name": "Chain Leggings", "sprite": "chain_leggings" },
+					"14": { "name": "Iron Leggings", "sprite": "iron_leggings" },
+					"15": { "name": "Quiver", "sprite": "quiver" },
+					"16": { "name": "Leather Boots", "sprite": "leather_boots" },
+					"17": { "name": "Studded Boots", "sprite": "studded_boots" },
+					"18": { "name": "Chain Boots", "sprite": "chain_boots" },
+					"19": { "name": "Iron Boots", "sprite": "iron_boots" },
+					"20": { "name": "Iron Shovel", "sprite": "iron_shovel" }
 				}
 			},
 
@@ -674,11 +674,11 @@
 				},
 
 				"items": {
-					"1?": { "name": "Apple", "sprite": "apple" },
-					"2?": { "name": "Iron Shovel", "sprite": "iron_shovel" },
-					"3?": { "name": "Iron Pickaxe", "sprite": "iron_pick" },
-					"4?": { "name": "Iron Axe", "sprite": "iron_axe" },
-					"5?": { "name": "Flint and Steel", "sprite": "flint_and_steel" }
+					"1": { "name": "Apple", "sprite": "apple" },
+					"2": { "name": "Iron Shovel", "sprite": "iron_shovel" },
+					"3": { "name": "Iron Pickaxe", "sprite": "iron_pick" },
+					"4": { "name": "Iron Axe", "sprite": "iron_axe" },
+					"5": { "name": "Flint and Steel", "sprite": "flint_and_steel" }
 				}
 			},
 
@@ -2014,7 +2014,7 @@
 
 		"versions": {
 			"infdev201002272": {
-				"name": "20100227-2",
+				"name": "20100227-2 (Incomplete)",
 				"hasUnknownRenders": true,
 
 				"blocks": {
@@ -2155,7 +2155,7 @@
 			},
 
 			"infdev201002313": {
-				"name": "20100313",
+				"name": "20100313 (Incomplete)",
 				"hasUnknownRenders": true,
 
 				"blocks": {
@@ -2296,7 +2296,7 @@
 			},
 
 			"infdev20100316": {
-				"name": "20100316",
+				"name": "20100316 (Incomplete)",
 				"hasUnknownRenders": true,
 
 				"blocks": {

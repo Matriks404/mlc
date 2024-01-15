@@ -21,16 +21,16 @@ function loadConfig() {
 		var versionType = config.versionType;
 		var versionEasyName = config.versionEasyName;
 
-		var version_string = "";
+		var versionString = "";
 
 		if (versionType == "release") {
-			version_string = "v" + versionNumber + " (" + versionEasyName + ")";
+			versionString = "v" + versionNumber + " (" + versionEasyName + ")";
 		} else {
-			version_string = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
+			versionString = "v" + versionNumber + "-" + versionType + " (" + versionEasyName + ")";
 		}
 
 		var versionInfoElement = document.getElementById('version-info');
-		versionInfoElement.innerHTML = version_string;
+		versionInfoElement.innerHTML = versionString;
 	});
 }
 
@@ -108,7 +108,7 @@ function loadVersionList() {
 	});
 }
 
-function loadEntries(entries, el, entriesName) {
+function loadEntries(entries, el, entriesName, hasUnknownIds) {
 	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 	var excludeMigratable = document.getElementById('exclude-migratable').checked;
 	var displayAirBlock = document.getElementById('display-air-block').checked;
@@ -143,6 +143,10 @@ function loadEntries(entries, el, entriesName) {
 		}
 
 		idElement.innerHTML = id;
+
+		if (hasUnknownIds) {
+			idElement.innerHTML += '?';
+		}
 
 		var elementWithTooltip = document.createElement('div');
 		elementWithTooltip.classList.add('with-tooltip');
@@ -239,15 +243,15 @@ function loadCurrentVersion() {
 	loadedVersionGroupId = groupId;
 	loadedVersionId = id;
 
-	var versions = versionGroups[groupId].versions;
+	var version = versionGroups[groupId].versions[id];
 
-	if (!versions[id]) {
+	if (!version) {
 		alert("Invalid game version!");
 
 		return;
 	}
 
-	var blocks = versions[id].blocks;
+	var blocks = version.blocks;
 
 	if (!blocks || !Object.keys(blocks).length) {
 		alert(id + " game version blocks data is corrupted!");
@@ -258,10 +262,11 @@ function loadCurrentVersion() {
 	var info = document.getElementById('info');
 	info.style.display = "flex";
 
-	checkVersionProperty('info-early-classic', versions[id], 'isEarlyClassic');
-	checkVersionProperty('info-unknown-renders', versions[id], 'hasUnknownRenders');
-	checkVersionProperty('info-unknown-item-ids', versions[id], 'hasUnknownItemIds');
-	checkVersionProperty('info-presumed-item-ids', versions[id], 'hasPresumedItemIds');
+	checkVersionProperty('info-early-classic', version, 'isEarlyClassic');
+	checkVersionProperty('info-unknown-renders', version, 'hasUnknownRenders');
+	checkVersionProperty('info-unknown-block-ids', version, 'hasUnknownBlockIds');
+	checkVersionProperty('info-unknown-item-ids', version, 'hasUnknownItemIds');
+	checkVersionProperty('info-presumed-item-ids', version, 'hasPresumedItemIds');
 
 	var containerElement = document.getElementById('container');
 	var oldMainElement = document.getElementsByTagName('main')[0];
@@ -293,9 +298,9 @@ function loadCurrentVersion() {
 	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration");
 	checkEntries(blocks, infoRemovedElement, "isRemoved");
 
-	loadEntries(blocks, blocksContentElement, "blocks");
+	loadEntries(blocks, blocksContentElement, "blocks", version.hasUnknownBlockIds);
 
-	var items = versions[id].items;
+	var items = version.items;
 
 	if (items && Object.keys(items).length) {
 		var itemsElement = document.createElement('fieldset');
@@ -322,7 +327,7 @@ function loadCurrentVersion() {
 			checkEntries(items, infoRemovedElement, "isRemoved");
 		}
 
-		loadEntries(items, itemsContentElement, "items");
+		loadEntries(items, itemsContentElement, "items", version.hasUnknownItemIds);
 	}
 
 	var elementsWithTooltips = document.querySelectorAll('.with-tooltip');
