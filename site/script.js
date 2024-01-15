@@ -94,12 +94,17 @@ function loadVersionList() {
 		var option = document.createElement('option');
 		option.setAttribute('value', id);
 
+		var version = versions[id]
 		var name;
 
-		if (versions[id].name) {
-			name = versions[id].name
+		if (version.name) {
+			name = version.name
 		} else {
 			name = "UNTITLED VERSION [" + id + "]"
+		}
+
+		if (version.hasUnknownBlockIds || version.hasUnknownItemIds || version.hasUnknownRenders) {
+			name += " (Incomplete)";
 		}
 
 		option.text = name;
@@ -266,7 +271,7 @@ function loadCurrentVersion() {
 	checkVersionProperty('info-unknown-renders', version, 'hasUnknownRenders');
 	checkVersionProperty('info-unknown-block-ids', version, 'hasUnknownBlockIds');
 	checkVersionProperty('info-unknown-item-ids', version, 'hasUnknownItemIds');
-	checkVersionProperty('info-presumed-item-ids', version, 'hasPresumedItemIds');
+	//checkVersionProperty('info-presumed-item-ids', version, 'hasPresumedItemIds');
 
 	var containerElement = document.getElementById('container');
 	var oldMainElement = document.getElementsByTagName('main')[0];

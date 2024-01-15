@@ -448,7 +448,7 @@
 			},
 
 			"indev200912312": {
-				"name": "0.31 20091231-2 (Incomplete)",
+				"name": "0.31 20091231-2",
 				"hasUnknownRenders": true,
 				"hasUnknownItemIds": true,
 
@@ -531,7 +531,7 @@
 			},
 
 			"indev20100104": {
-				"name": "0.31 20100104 (Incomplete)",
+				"name": "0.31 20100104",
 				"hasUnknownRenders": true,
 				"hasUnknownItemIds": true,
 
@@ -614,7 +614,7 @@
 			},
 
 			"indev20100110": {
-				"name": "0.31 20100110 (Incomplete)",
+				"name": "0.31 20100110",
 				"hasUnknownRenders": true,
 				"hasUnknownItemIds": true,
 
@@ -2014,7 +2014,7 @@
 
 		"versions": {
 			"infdev201002272": {
-				"name": "20100227-2 (Incomplete)",
+				"name": "20100227-2",
 				"hasUnknownRenders": true,
 
 				"blocks": {
@@ -2155,7 +2155,7 @@
 			},
 
 			"infdev201002313": {
-				"name": "20100313 (Incomplete)",
+				"name": "20100313",
 				"hasUnknownRenders": true,
 
 				"blocks": {
@@ -2296,7 +2296,7 @@
 			},
 
 			"infdev20100316": {
-				"name": "20100316 (Incomplete)",
+				"name": "20100316",
 				"hasUnknownRenders": true,
 
 				"blocks": {
