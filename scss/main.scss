@@ -74,6 +74,12 @@ p {
 	color: $color-default-message;
 }
 
+#info-unknown-block-ids {
+	display: none;
+
+	color: $color-default-message;
+}
+
 #info-unknown-item-ids {
 	display: none;
 
