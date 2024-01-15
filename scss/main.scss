@@ -17,7 +17,7 @@ fieldset {
 	border-color: $default-ui-elements-color;
 	border-width: 1px;
 
-	padding: 6px 10px 14px 10px;
+	padding: 6px 8px 11px 8px;
 }
 
 img {
@@ -25,11 +25,11 @@ img {
 }
 
 main > fieldset {
-	width: 320px;
+	width: 324px;
 }
 
 main > fieldset:only-of-type {
-	width: 644px;
+	width: 648px;
 }
 
 main {
@@ -159,12 +159,12 @@ p {
 #settings {
 	margin: 0 auto 24px auto;
 
-	width: 320px;
+	width: 324px;
 }
 
 #settings > button {
 	display: block;
-	margin: auto;
+	margin: 0 auto 3px auto;
 
 	padding: 3px 8px 3px 8px;
 }
@@ -172,7 +172,7 @@ p {
 #settings-inner {
 	display: flex;
 
-	margin: 8px 16px 18px 16px;
+	margin: 8px 18px 18px 18px;
 
 	flex-flow: column nowrap;
 }
@@ -217,14 +217,15 @@ p {
 	margin-bottom: 2px;
 }
 
+.entry {
+	margin: 0 2px 3px 2px;
+}
+
 .fieldset-content {
 	display: flex;
 
 	flex-flow: row wrap;
 	align-content: flex-start;
-
-	row-gap: 3px;
-	column-gap: 4px;
 }
 
 .id {
@@ -276,7 +277,7 @@ p {
 	visibility: visible;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 491px) {
 	main {
 		margin-bottom: 18px;
 
@@ -284,7 +285,11 @@ p {
 	}
 
 	main > fieldset:not(:last-child) {
-		margin-bottom: 16px;
+		margin-bottom: 24px;
+	}
+
+	main > fieldset:only-of-type {
+		width: 324px;
 	}
 
 	p {
