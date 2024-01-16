@@ -82,4 +82,4 @@ Additionally this project uses in-game rendered **Minecraft** assets which are c
 
 [^3]: Minecraft Indev 0.31 versions: 20091231-2, 20100104 and 20100110 have unknown block renders and unknown item ID's.
 
-[^4]: Minecraft Infdev versions: 20100227-2, 20100313 and 20100316 have unknown block/item renders.
+[^4]: Minecraft Infdev versions: 20100227-2, 20100313, 20100316, 20100320 and 20100325 have unknown block/item renders.
