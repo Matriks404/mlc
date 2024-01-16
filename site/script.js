@@ -116,14 +116,21 @@ function loadVersionList() {
 function loadEntries(entries, el, entriesName, hasUnknownIds) {
 	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 	var excludeMigratable = document.getElementById('exclude-migratable').checked;
+	var excludeObtainableByNotch = document.getElementById('exclude-obtainable-by-notch').checked
 	var displayAirBlock = document.getElementById('display-air-block').checked;
 
 	Object.keys(entries).forEach(function (id) {
-		if (excludeUnobtainable && entries[id].isUnobtainable) {
+		var entry = entries[id]
+
+		if (excludeUnobtainable && entry.isUnobtainable) {
 			return;
 		}
 
-		if (excludeMigratable && entries[id].isObtainableByMigration) {
+		if (excludeMigratable && entry.isObtainableByMigration) {
+			return;
+		}
+
+		if (excludeObtainableByNotch && entry.isObtainableByNotch) {
 			return;
 		}
 
@@ -131,19 +138,21 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			return;
 		}
 
-		var entry = document.createElement('div');
-		el.appendChild(entry);
-		entry.classList.add('entry');
+		var entryElement = document.createElement('div');
+		el.appendChild(entryElement);
+		entryElement.classList.add('entry');
 
 		var idElement = document.createElement('div');
-		entry.appendChild(idElement);
+		entryElement.appendChild(idElement);
 		idElement.classList.add('id');
 
-		if (entries[id].isUnobtainable) {
+		if (entry.isUnobtainable) {
 			idElement.classList.add('id-unobtainable');
-		} else if (entries[id].isObtainableByMigration) {
+		} else if (entry.isObtainableByMigration) {
 			idElement.classList.add('id-migratable');
-		} else if (entries[id].isRemoved) {
+		} else if (entry.isObtainableByNotch) {
+			idElement.classList.add('id-obtainable-by-notch');
+		} else if (entry.isRemoved) {
 			idElement.classList.add('id-removed');
 		}
 
@@ -155,7 +164,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 
 		var elementWithTooltip = document.createElement('div');
 		elementWithTooltip.classList.add('with-tooltip');
-		entry.appendChild(elementWithTooltip);
+		entryElement.appendChild(elementWithTooltip);
 
 		var imageContainer = document.createElement('div');
 		imageContainer.classList.add('img-container');
@@ -163,8 +172,8 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 
 		var img = document.createElement('img');
 
-		if (entries[id].sprite) {
-			img.src = 'images/' + entriesName + '/' + entries[id].sprite + '.png';
+		if (entry.sprite) {
+			img.src = 'images/' + entriesName + '/' + entry.sprite + '.png';
 		} else {
 			img.src = 'images/unknown.png';
 		}
@@ -174,7 +183,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 		var tooltip = document.createElement('div');
 		tooltip.classList.add('tooltip');
 
-		var name = entries[id].name ? entries[id].name : "NO NAME";
+		var name = entry.name ? entry.name : "NO NAME";
 		tooltip.innerHTML = name;
 
 		elementWithTooltip.appendChild(tooltip);
@@ -194,14 +203,21 @@ function checkVersionProperty(elementName, version, property) {
 function doEntriesContainEntryType(entries, type) {
 	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 	var excludeMigratable = document.getElementById('exclude-migratable').checked;
+	var excludeObtainableByNotch = document.getElementById('exclude-obtainable-by-notch').checked;
 	var countAirBlock = document.getElementById('display-air-block').checked;
 
 	return Object.keys(entries).some(function (id) {
-		if (excludeUnobtainable && entries[id].isUnobtainable) {
+		var entry = entries[id]
+
+		if (excludeUnobtainable && entry.isUnobtainable) {
 			return false;
 		}
 
-		if (excludeMigratable && entries[id].isObtainableByMigration) {
+		if (excludeMigratable && entry.isObtainableByMigration) {
+			return false;
+		}
+
+		if (excludeObtainableByNotch && entry.isObtainableByNotch) {
 			return false;
 		}
 
@@ -209,7 +225,7 @@ function doEntriesContainEntryType(entries, type) {
 			return false;
 		}
 
-		if (entries[id][type]) {
+		if (entry[type]) {
 			return true;
 		}
 
@@ -297,10 +313,12 @@ function loadCurrentVersion() {
 
 	var infoUnobtainableElement = document.getElementById('info-unobtainable');
 	var infoMigratableElement = document.getElementById('info-migratable');
+	var infoObtainableByNotchElement = document.getElementById('info-obtainable-by-notch');
 	var infoRemovedElement = document.getElementById('info-removed');
 
 	checkEntries(blocks, infoUnobtainableElement, "isUnobtainable");
 	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration");
+	checkEntries(blocks, infoObtainableByNotchElement, "isObtainableByNotch");
 	checkEntries(blocks, infoRemovedElement, "isRemoved");
 
 	loadEntries(blocks, blocksContentElement, "blocks", version.hasUnknownBlockIds);
@@ -326,6 +344,10 @@ function loadCurrentVersion() {
 
 		if (infoMigratableElement.style.display == "none") {
 			checkEntries(items, infoMigratableElement, "isObtainableByMigration");
+		}
+
+		if (infoObtainableByNotchElement.style.display == "none") {
+			checkEntries(items, infoObtainableByNotchElement, "isObtainableByNotch");
 		}
 
 		if (infoRemovedElement.style.display == "none") {
@@ -371,6 +393,9 @@ function reloadCheckboxes() {
 
 	var excludeMigratableCheckbox = document.getElementById('exclude-migratable');
 	excludeMigratableCheckbox.disabled = "disabled";
+
+	var excludeObtainableByNotchCheckbox = document.getElementById('exclude-obtainable-by-notch');
+	excludeObtainableByNotchCheckbox.disabled = "disabled";
 }
 
 function reloadVersionList() {
@@ -423,10 +448,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 		var excludeMigratableCheckbox = document.getElementById('exclude-migratable');
+		var excludeObtainableByNotchCheckbox = document.getElementById('exclude-obtainable-by-notch');
 		var displayAirCheckbox = document.getElementById('display-air-block');
 
 		if (excludeUnobtainable) {
 			excludeMigratableCheckbox.disabled = "";
+			excludeObtainableByNotchCheckbox.disabled = "";
 
 			displayAirCheckbox.checked = false;
 			displayAirCheckbox.disabled = "disabled";
@@ -434,12 +461,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			excludeMigratableCheckbox.checked = false;
 			excludeMigratableCheckbox.disabled = "disabled";
 
+			excludeObtainableByNotchCheckbox.checked = false;
+			excludeObtainableByNotchCheckbox.disabled = "disabled";
+
 			displayAirCheckbox.disabled = "";
 		}
 	});
 
 	document.getElementById('exclude-migratable').addEventListener('change', updateSettingsStatus);
-
+	document.getElementById('exclude-obtainable-by-notch').addEventListener('change', updateSettingsStatus);
 	document.getElementById('display-air-block').addEventListener('change', updateSettingsStatus);
 });
-

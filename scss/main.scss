@@ -68,6 +68,30 @@ p {
 	color: $color-default-message;
 }
 
+#info-migratable {
+	display: none;
+
+	color: $color-migratable;
+}
+
+//#info-presumed-item-ids {
+//	display: none;
+//
+//	color: $color-default-message;
+//}
+
+#info-removed {
+	display: none;
+
+	color: $color-removed;
+}
+
+#info-obtainable-by-notch {
+	display: none;
+
+	color: $color-obtainable-by-notch;
+}
+
 #info-unknown-renders {
 	display: none;
 
@@ -86,28 +110,10 @@ p {
 	color: $color-default-message;
 }
 
-//#info-presumed-item-ids {
-//	display: none;
-//
-//	color: $color-default-message;
-//}
-
 #info-unobtainable {
 	display: none;
 
 	color: $color-unobtainable;
-}
-
-#info-migratable {
-	display: none;
-
-	color: $color-migratable;
-}
-
-#info-removed {
-	display: none;
-
-	color: $color-removed;
 }
 
 #legal-info {
@@ -232,16 +238,20 @@ p {
 	text-align: center;
 }
 
-.id-unobtainable {
-	color: $color-unobtainable;
-}
-
 .id-migratable {
 	color: $color-migratable;
 }
 
+.id-obtainable-by-notch {
+	color: $color-obtainable-by-notch;
+}
+
 .id-removed {
 	color: $color-removed;
+}
+
+.id-unobtainable {
+	color: $color-unobtainable;
 }
 
 .img-container {
