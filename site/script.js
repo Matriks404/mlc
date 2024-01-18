@@ -140,20 +140,20 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 
 		var entryElement = document.createElement('div');
 		el.appendChild(entryElement);
-		entryElement.classList.add('entry');
+		entryElement.className = 'entry';
 
 		var idElement = document.createElement('div');
 		entryElement.appendChild(idElement);
-		idElement.classList.add('id');
+		idElement.className = 'id';
 
 		if (entry.isUnobtainable) {
-			idElement.classList.add('id-unobtainable');
+			idElement.className += ' id-unobtainable';
 		} else if (entry.isObtainableByMigration) {
-			idElement.classList.add('id-migratable');
+			idElement.className += ' id-migratable';
 		} else if (entry.isObtainableByNotch) {
-			idElement.classList.add('id-obtainable-by-notch');
+			idElement.className += ' id-obtainable-by-notch';
 		} else if (entry.isRemoved) {
-			idElement.classList.add('id-removed');
+			idElement.className += ' id-removed';
 		}
 
 		idElement.innerHTML = id;
@@ -163,11 +163,11 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 		}
 
 		var elementWithTooltip = document.createElement('div');
-		elementWithTooltip.classList.add('with-tooltip');
+		elementWithTooltip.className = 'with-tooltip';
 		entryElement.appendChild(elementWithTooltip);
 
 		var imageContainer = document.createElement('div');
-		imageContainer.classList.add('img-container');
+		imageContainer.className = 'img-container';
 		elementWithTooltip.appendChild(imageContainer);
 
 		var img = document.createElement('img');
@@ -181,7 +181,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 		imageContainer.appendChild(img);
 
 		var tooltip = document.createElement('div');
-		tooltip.classList.add('tooltip');
+		tooltip.className = 'tooltip';
 
 		var name = entry.name ? entry.name : "NO NAME";
 		tooltip.innerHTML = name;
@@ -309,7 +309,7 @@ function loadCurrentVersion() {
 
 	var blocksContentElement = document.createElement('div');
 	blocksElement.appendChild(blocksContentElement);
-	blocksContentElement.classList.add('fieldset-content');
+	blocksContentElement.className = 'fieldset-content';
 
 	var infoUnobtainableElement = document.getElementById('info-unobtainable');
 	var infoMigratableElement = document.getElementById('info-migratable');
@@ -336,7 +336,7 @@ function loadCurrentVersion() {
 
 		var itemsContentElement = document.createElement('div');
 		itemsElement.appendChild(itemsContentElement);
-		itemsContentElement.classList.add('fieldset-content');
+		itemsContentElement.className = 'fieldset-content';
 
 		if (infoUnobtainableElement.style.display == "none") {
 			checkEntries(items, infoUnobtainableElement, "isUnobtainable");
