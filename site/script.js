@@ -117,6 +117,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 	var excludeMigratable = document.getElementById('exclude-migratable').checked;
 	var excludeObtainableByNotch = document.getElementById('exclude-obtainable-by-notch').checked
+	var excludeObtainableInWinterMode = document.getElementById('exclude-obtainable-in-winter-mode').checked
 	var displayAirBlock = document.getElementById('display-air-block').checked;
 
 	Object.keys(entries).forEach(function (id) {
@@ -131,6 +132,10 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 		}
 
 		if (excludeObtainableByNotch && entry.isObtainableByNotch) {
+			return;
+		}
+
+		if (excludeObtainableInWinterMode && entry.isObtainableInWinterMode) {
 			return;
 		}
 
@@ -152,6 +157,8 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			idElement.className += ' id-migratable';
 		} else if (entry.isObtainableByNotch) {
 			idElement.className += ' id-obtainable-by-notch';
+		} else if (entry.isObtainableInWinterMode) {
+			idElement.className += ' id-obtainable-in-winter-mode';
 		} else if (entry.isRemoved) {
 			idElement.className += ' id-removed';
 		}
@@ -204,6 +211,7 @@ function doEntriesContainEntryType(entries, type) {
 	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 	var excludeMigratable = document.getElementById('exclude-migratable').checked;
 	var excludeObtainableByNotch = document.getElementById('exclude-obtainable-by-notch').checked;
+	var excludeObtainableInWinterMode = document.getElementById('exclude-obtainable-in-winter-mode').checked;
 	var countAirBlock = document.getElementById('display-air-block').checked;
 
 	return Object.keys(entries).some(function (id) {
@@ -218,6 +226,10 @@ function doEntriesContainEntryType(entries, type) {
 		}
 
 		if (excludeObtainableByNotch && entry.isObtainableByNotch) {
+			return false;
+		}
+
+		if (excludeObtainableInWinterMode && entry.isObtainableInWinterMode) {
 			return false;
 		}
 
@@ -314,11 +326,13 @@ function loadCurrentVersion() {
 	var infoUnobtainableElement = document.getElementById('info-unobtainable');
 	var infoMigratableElement = document.getElementById('info-migratable');
 	var infoObtainableByNotchElement = document.getElementById('info-obtainable-by-notch');
+	var infoObtainableInWinterModeElement = document.getElementById('info-obtainable-in-winter-mode');
 	var infoRemovedElement = document.getElementById('info-removed');
 
 	checkEntries(blocks, infoUnobtainableElement, "isUnobtainable");
 	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration");
 	checkEntries(blocks, infoObtainableByNotchElement, "isObtainableByNotch");
+	checkEntries(blocks, infoObtainableInWinterModeElement, "isObtainableInWinterMode");
 	checkEntries(blocks, infoRemovedElement, "isRemoved");
 
 	loadEntries(blocks, blocksContentElement, "blocks", version.hasUnknownBlockIds);
@@ -348,6 +362,10 @@ function loadCurrentVersion() {
 
 		if (infoObtainableByNotchElement.style.display == "none") {
 			checkEntries(items, infoObtainableByNotchElement, "isObtainableByNotch");
+		}
+
+		if (infoObtainableInWinterModeElement.style.display == "none") {
+			checkEntries(items, infoObtainableInWinterModeElement, "isObtainableInWinterMode");
 		}
 
 		if (infoRemovedElement.style.display == "none") {
@@ -396,6 +414,9 @@ function reloadCheckboxes() {
 
 	var excludeObtainableByNotchCheckbox = document.getElementById('exclude-obtainable-by-notch');
 	excludeObtainableByNotchCheckbox.disabled = "disabled";
+
+	var excludeObtainableInWinterModeCheckbox = document.getElementById('exclude-obtainable-in-winter-mode');
+	excludeObtainableInWinterModeCheckbox.disabled = "disabled";
 }
 
 function reloadVersionList() {
@@ -449,11 +470,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
 		var excludeMigratableCheckbox = document.getElementById('exclude-migratable');
 		var excludeObtainableByNotchCheckbox = document.getElementById('exclude-obtainable-by-notch');
+		var excludeObtainableInWinterModeCheckbox = document.getElementById('exclude-obtainable-in-winter-mode');
 		var displayAirCheckbox = document.getElementById('display-air-block');
 
 		if (excludeUnobtainable) {
 			excludeMigratableCheckbox.disabled = "";
 			excludeObtainableByNotchCheckbox.disabled = "";
+			excludeObtainableInWinterModeCheckbox.disabled = "";
 
 			displayAirCheckbox.checked = false;
 			displayAirCheckbox.disabled = "disabled";
@@ -464,11 +487,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			excludeObtainableByNotchCheckbox.checked = false;
 			excludeObtainableByNotchCheckbox.disabled = "disabled";
 
+			excludeObtainableInWinterModeCheckbox.checked = false;
+			excludeObtainableInWinterModeCheckbox.disabled = "disabled";
+
 			displayAirCheckbox.disabled = "";
 		}
 	});
 
 	document.getElementById('exclude-migratable').addEventListener('change', updateSettingsStatus);
 	document.getElementById('exclude-obtainable-by-notch').addEventListener('change', updateSettingsStatus);
+	document.getElementById('exclude-obtainable-in-winter-mode').addEventListener('change', updateSettingsStatus);
 	document.getElementById('display-air-block').addEventListener('change', updateSettingsStatus);
 });

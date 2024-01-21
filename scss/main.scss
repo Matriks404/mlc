@@ -92,6 +92,12 @@ p {
 	color: $color-obtainable-by-notch;
 }
 
+#info-obtainable-in-winter-mode {
+	display: none;
+
+	color: $color-obtainable-in-winter-mode;
+}
+
 #info-unknown-renders {
 	display: none;
 
@@ -244,6 +250,10 @@ p {
 
 .id-obtainable-by-notch {
 	color: $color-obtainable-by-notch;
+}
+
+.id-obtainable-in-winter-mode {
+	color: $color-obtainable-in-winter-mode;
 }
 
 .id-removed {
