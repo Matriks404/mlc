@@ -106,13 +106,13 @@
 					"9": { "name": "Stationary Water", "sprite": "nothing", "isUnobtainable": true },
 					"10": { "name": "Flowing Lava", "sprite": "nothing", "isUnobtainable": true },
 					"11": { "name": "Stationary Lava", "sprite": "nothing", "isUnobtainable": true },
-					"12": { "name": "Sand", "sprite": "classic/sand_v1" },
-					"13": { "name": "Gravel", "sprite": "classic/gravel_v1" },
-					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore_v1", "isUnobtainable": true },
+					"12": { "name": "Sand", "sprite": "classic/sand" },
+					"13": { "name": "Gravel", "sprite": "classic/gravel" },
+					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore", "isUnobtainable": true },
 					"15": { "name": "Iron Ore", "sprite": "classic/iron_ore", "isUnobtainable": true },
 					"16": { "name": "Coal Ore", "sprite": "classic/coal_ore", "isUnobtainable": true },
-					"17": { "name": "Wood", "sprite": "classic/wood_v1" },
-					"18": { "name": "Leaves", "sprite": "classic/leaves_v1" }
+					"17": { "name": "Wood", "sprite": "classic/wood" },
+					"18": { "name": "Leaves", "sprite": "classic/leaves" }
 				}
 			},
 
@@ -135,7 +135,7 @@
 					"11": { "name": "Stationary Lava", "sprite": "nothing", "isUnobtainable": true },
 					"12": { "name": "Sand", "sprite": "classic/sand_v2" },
 					"13": { "name": "Gravel", "sprite": "classic/gravel_v2" },
-					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore_v1", "isUnobtainable": true },
+					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore", "isUnobtainable": true },
 					"15": { "name": "Iron Ore", "sprite": "classic/iron_ore", "isUnobtainable": true },
 					"16": { "name": "Coal Ore", "sprite": "classic/coal_ore", "isUnobtainable": true },
 					"17": { "name": "Wood", "sprite": "classic/wood_v2" },
@@ -162,7 +162,7 @@
 					"11": { "name": "Stationary Lava", "sprite": "nothing", "isUnobtainable": true },
 					"12": { "name": "Sand", "sprite": "classic/sand_v2", "isUnobtainable": true },
 					"13": { "name": "Gravel", "sprite": "classic/gravel_v2" },
-					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore_v1", "isUnobtainable": true },
+					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore", "isUnobtainable": true },
 					"15": { "name": "Iron Ore", "sprite": "classic/iron_ore", "isUnobtainable": true },
 					"16": { "name": "Coal Ore", "sprite": "classic/coal_ore", "isUnobtainable": true },
 					"17": { "name": "Wood", "sprite": "classic/wood_v2" },
@@ -190,7 +190,7 @@
 					"11": { "name": "Stationary Lava", "sprite": "nothing", "isUnobtainable": true },
 					"12": { "name": "Sand", "sprite": "classic/sand_v2" },
 					"13": { "name": "Gravel", "sprite": "classic/gravel_v2" },
-					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore_v1", "isUnobtainable": true },
+					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore", "isUnobtainable": true },
 					"15": { "name": "Iron Ore", "sprite": "classic/iron_ore", "isUnobtainable": true },
 					"16": { "name": "Coal Ore", "sprite": "classic/coal_ore", "isUnobtainable": true },
 					"17": { "name": "Wood", "sprite": "classic/wood_v2" },
@@ -210,14 +210,14 @@
 					"31": { "name": "Purple Cloth", "sprite": "classic/purple_cloth" },
 					"32": { "name": "Magenta Cloth", "sprite": "classic/magenta_cloth" },
 					"33": { "name": "Rose Cloth", "sprite": "classic/rose_cloth" },
-					"34": { "name": "Dark Gray Cloth", "sprite": "classic/dark_gray_cloth_v1" },
-					"35": { "name": "Light Gray Cloth", "sprite": "classic/light_gray_cloth_v1" },
+					"34": { "name": "Dark Gray Cloth", "sprite": "classic/dark_gray_cloth" },
+					"35": { "name": "Light Gray Cloth", "sprite": "classic/light_gray_cloth" },
 					"36": { "name": "White Cloth", "sprite": "classic/white_cloth" },
 					"37": { "name": "Flower", "sprite": "classic/flower" },
 					"38": { "name": "Rose", "sprite": "classic/rose" },
 					"39": { "name": "Brown Mushroom", "sprite": "classic/brown_mushroom" },
 					"40": { "name": "Red Mushroom", "sprite": "classic/red_mushroom" },
-					"41": { "name": "Block of Gold", "sprite": "classic/block_of_gold_v1" }
+					"41": { "name": "Block of Gold", "sprite": "classic/block_of_gold" }
 				}
 			},
 
@@ -239,7 +239,7 @@
 					"11": { "name": "Stationary Lava", "sprite": "nothing", "isUnobtainable": true },
 					"12": { "name": "Sand", "sprite": "classic/sand_v2" },
 					"13": { "name": "Gravel", "sprite": "classic/gravel_v2" },
-					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore_v1" },
+					"14": { "name": "Gold Ore", "sprite": "classic/gold_ore" },
 					"15": { "name": "Iron Ore", "sprite": "classic/iron_ore" },
 					"16": { "name": "Coal Ore", "sprite": "classic/coal_ore" },
 					"17": { "name": "Wood", "sprite": "classic/wood_v2", "isUnobtainable": true },
@@ -259,14 +259,14 @@
 					"31": { "name": "Purple Cloth", "sprite": "classic/purple_cloth", "isUnobtainable": true },
 					"32": { "name": "Magenta Cloth", "sprite": "classic/magenta_cloth", "isUnobtainable": true },
 					"33": { "name": "Rose Cloth", "sprite": "classic/rose_cloth", "isUnobtainable": true },
-					"34": { "name": "Dark Gray Cloth", "sprite": "classic/dark_gray_cloth_v1", "isUnobtainable": true },
-					"35": { "name": "Light Gray Cloth", "sprite": "classic/light_gray_cloth_v1", "isUnobtainable": true },
+					"34": { "name": "Dark Gray Cloth", "sprite": "classic/dark_gray_cloth", "isUnobtainable": true },
+					"35": { "name": "Light Gray Cloth", "sprite": "classic/light_gray_cloth", "isUnobtainable": true },
 					"36": { "name": "White Cloth", "sprite": "classic/white_cloth", "isUnobtainable": true },
 					"37": { "name": "Flower", "sprite": "classic/flower" },
 					"38": { "name": "Rose", "sprite": "classic/rose" },
 					"39": { "name": "Brown Mushroom", "sprite": "classic/brown_mushroom" },
 					"40": { "name": "Red Mushroom", "sprite": "classic/red_mushroom" },
-					"41": { "name": "Block of Gold", "sprite": "classic/block_of_gold_v1", "isUnobtainable": true }
+					"41": { "name": "Block of Gold", "sprite": "classic/block_of_gold", "isUnobtainable": true }
 				}
 			},
 
@@ -308,8 +308,8 @@
 					"31": { "name": "Purple Cloth", "sprite": "classic/purple_cloth", "isUnobtainable": true },
 					"32": { "name": "Magenta Cloth", "sprite": "classic/magenta_cloth", "isUnobtainable": true },
 					"33": { "name": "Rose Cloth", "sprite": "classic/rose_cloth", "isUnobtainable": true },
-					"34": { "name": "Dark Gray Cloth", "sprite": "classic/dark_gray_cloth_v1", "isUnobtainable": true },
-					"35": { "name": "Light Gray Cloth", "sprite": "classic/light_gray_cloth_v1", "isUnobtainable": true },
+					"34": { "name": "Dark Gray Cloth", "sprite": "classic/dark_gray_cloth", "isUnobtainable": true },
+					"35": { "name": "Light Gray Cloth", "sprite": "classic/light_gray_cloth", "isUnobtainable": true },
 					"36": { "name": "White Cloth", "sprite": "classic/white_cloth", "isUnobtainable": true },
 					"37": { "name": "Flower", "sprite": "classic/flower" },
 					"38": { "name": "Rose", "sprite": "classic/rose" },
@@ -320,7 +320,7 @@
 					"43": { "name": "Double Slab", "sprite": "classic/double_slab", "isUnobtainable": true },
 					"44": { "name": "Slab", "sprite": "classic/slab" },
 					"45": { "name": "Bricks", "sprite": "classic/bricks", "isUnobtainable": true },
-					"46": { "name": "TNT", "sprite": "classic/tnt_v1" },
+					"46": { "name": "TNT", "sprite": "classic/tnt" },
 					"47": { "name": "Bookshelf", "sprite": "classic/bookshelf", "isUnobtainable": true },
 					"48": { "name": "Mossy Cobblestone", "sprite": "classic/mossy_cobblestone", "isUnobtainable": true }
 				}
