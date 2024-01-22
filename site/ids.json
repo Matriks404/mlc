@@ -20,10 +20,10 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
-					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone_v2" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
+					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "preclassic/planks" }
 				}
 			},
@@ -34,10 +34,10 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
-					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone_v2" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
+					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "preclassic/planks_v2" },
 					"6": { "name": "Sapling", "sprite": "preclassic/sapling" }
 				}
@@ -55,10 +55,10 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
-					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone_v2" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
+					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "preclassic/planks_v2" },
 					"6": { "name": "Sapling", "sprite": "preclassic/sapling" },
 					"7": { "name": "Bedrock", "sprite": "classic/bedrock", "isUnobtainable": true },
@@ -75,10 +75,10 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
-					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone_v2" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
+					"4": { "name": "Cobblestone", "sprite": "preclassic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "preclassic/planks_v2" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
 					"7": { "name": "Bedrock", "sprite": "classic/bedrock", "isUnobtainable": true },
@@ -95,9 +95,9 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
 					"4": { "name": "Cobblestone", "sprite": "classic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "classic/planks" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
@@ -122,9 +122,9 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
 					"4": { "name": "Cobblestone", "sprite": "classic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "classic/planks" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
@@ -149,9 +149,9 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
 					"4": { "name": "Cobblestone", "sprite": "classic/cobblestone", "isUnobtainable": true },
 					"5": { "name": "Planks", "sprite": "classic/planks" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
@@ -177,9 +177,9 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
 					"4": { "name": "Cobblestone", "sprite": "classic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "classic/planks" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
@@ -226,9 +226,9 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
 					"4": { "name": "Cobblestone", "sprite": "classic/cobblestone", "isUnobtainable": true },
 					"5": { "name": "Planks", "sprite": "classic/planks" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
@@ -275,9 +275,9 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone", "isUnobtainable": true },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2", "isUnobtainable": true },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
 					"4": { "name": "Cobblestone", "sprite": "classic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "classic/planks" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
@@ -331,9 +331,9 @@
 
 				"blocks": {
 					"0": { "name": "Air", "sprite": "nothing", "isUnobtainable": true },
-					"1": { "name": "Stone", "sprite": "classic/stone" },
-					"2": { "name": "Grass Block", "sprite": "classic/grass", "isUnobtainable": true },
-					"3": { "name": "Dirt", "sprite": "classic/dirt" },
+					"1": { "name": "Stone", "sprite": "preclassic/stone_v2" },
+					"2": { "name": "Grass Block", "sprite": "preclassic/grass_v2", "isUnobtainable": true },
+					"3": { "name": "Dirt", "sprite": "preclassic/dirt" },
 					"4": { "name": "Cobblestone", "sprite": "classic/cobblestone" },
 					"5": { "name": "Planks", "sprite": "classic/planks" },
 					"6": { "name": "Sapling", "sprite": "classic/sapling" },
