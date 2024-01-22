@@ -18,10 +18,10 @@ Alternatively, for running locally go to the section [over there](#running-local
 
 Following table shows current and planned functionality:
 
-|                  | Pre-Classic | Classic | Indev | Infdev | Alpha | Beta | Final (pre-flattening[^1]) | Final (after-flattening[^2]) |
+|                  | Pre-Classic | Classic | Indev | Infdev | Alpha[^1] | Beta | Final (pre-flattening[^2]) | Final (after-flattening[^3]) |
 | :--------------: | :---------: | :-----: | :---: | :----: | :---: | :--: | :------------------------: | :--------------------------: |
-|  **Block ID's**  |      ✔️      |    ✔️    | ✔️[^3] |   ✔️[^4]    |   🔨   |  ❌   |             ❌              |              ❌               |
-|  **Item ID's**   |      🚫      |    🚫    | ✔️[^3] |   ✔️[^4]    |   🔨   |  ❌   |             ❌              |              ❌               |
+|  **Block ID's**  |      ✔️      |    ✔️    | ✔️[^4] |   ✔️[^5]    |   🔨   |  🔨   |             ❌              |              ❌               |
+|  **Item ID's**   |      🚫      |    🚫    | ✔️[^4] |   ✔️[^5]    |   🔨[^6]   |  🔨   |             ❌              |              ❌               |
 |   **Mob ID'S**   |      ❓      |    ❓    |   ❓   |   ❓    |   ❓   |  ❓   |             ❌              |              ❌               |
 | **Achievements** |      🚫      |    🚫    |   🚫   |   🚫    |   🚫   |  ❌   |             ❌              |              ❌               |
 
@@ -76,10 +76,14 @@ Additionally this project uses in-game rendered **Minecraft** assets which are c
 
 
 
-[^1]: Applies to versions before Minecraft 1.13 snapshot 17w47a.
+[^1]: Minecraft Alpha v1.2.3 wasn't tested yet.
 
-[^2]: Applies to versions after (and including) Minecraft 1.13 snapshot 17w47a.
+[^2]: Applies to versions before Minecraft 1.13 snapshot 17w47a.
 
-[^3]: Minecraft Indev 0.31 versions: 20091231-2, 20100104 and 20100110 have unknown block renders and unknown item ID's.
+[^3]: Applies to versions after (and including) Minecraft 1.13 snapshot 17w47a.
 
-[^4]: Minecraft Infdev versions: 20100227-2, 20100313, 20100316, 20100320 and 20100325 have unknown block/item renders.
+[^4]: Minecraft Indev 0.31 versions: 20091231-2, 20100104 and 20100110 have unknown block renders and unknown item ID's.
+
+[^5]: Minecraft Infdev versions: 20100227-2, 20100313, 20100316, 20100320 and 20100325 have unknown block/item renders.
+
+[^6]: Minecraft Alpha v1.2.3_05 (But apparently meant to be v1.2.4, but is mislabeled) has a debugging feature enabled where only creepers spawn as hostile mobs, but it isn't tested what happens with existing or newly generated mob spawners in dungeons.

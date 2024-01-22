@@ -104,7 +104,9 @@ function loadVersionList() {
 		}
 
 		if (version.hasUnknownBlockIds || version.hasUnknownItemIds || version.hasUnknownRenders) {
-			name += " (Incomplete)";
+			name += " [INCOMPLETE]";
+		} else if (version.needsTesting) {
+			name += " [NEEDS TESTING]";
 		}
 
 		option.text = name;
@@ -191,6 +193,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 		tooltip.className = 'tooltip';
 
 		var name = entry.name ? entry.name : "NO NAME";
+
 		tooltip.innerHTML = name;
 
 		elementWithTooltip.appendChild(tooltip);
@@ -296,6 +299,7 @@ function loadCurrentVersion() {
 	info.style.display = "flex";
 
 	checkVersionProperty('info-early-classic', version, 'isEarlyClassic');
+	checkVersionProperty('info-needs-testing', version, 'needsTesting');
 	checkVersionProperty('info-unknown-renders', version, 'hasUnknownRenders');
 	checkVersionProperty('info-unknown-block-ids', version, 'hasUnknownBlockIds');
 	checkVersionProperty('info-unknown-item-ids', version, 'hasUnknownItemIds');

@@ -68,10 +68,17 @@ p {
 	color: $color-default-message;
 }
 
+
 #info-migratable {
 	display: none;
 
 	color: $color-migratable;
+}
+
+#info-needs-testing {
+	display: none;
+
+	color: $color-default-message;
 }
 
 //#info-presumed-item-ids {
