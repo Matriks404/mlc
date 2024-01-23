@@ -298,8 +298,9 @@ function loadCurrentVersion() {
 	var info = document.getElementById('info');
 	info.style.display = "flex";
 
-	checkVersionProperty('info-early-classic', version, 'isEarlyClassic');
 	checkVersionProperty('info-needs-testing', version, 'needsTesting');
+	checkVersionProperty('info-early-classic', version, 'isEarlyClassic');
+	checkVersionProperty('info-no-official-tooltip-names', version, 'hasNoOfficialTooltipNames')
 	checkVersionProperty('info-unknown-renders', version, 'hasUnknownRenders');
 	checkVersionProperty('info-unknown-block-ids', version, 'hasUnknownBlockIds');
 	checkVersionProperty('info-unknown-item-ids', version, 'hasUnknownItemIds');

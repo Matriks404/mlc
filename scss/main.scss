@@ -68,6 +68,11 @@ p {
 	color: $color-default-message;
 }
 
+#info-no-official-tooltip-names {
+	display: none;
+
+	color: $color-default-message;
+}
 
 #info-migratable {
 	display: none;
