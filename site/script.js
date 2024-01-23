@@ -141,7 +141,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			return;
 		}
 
-		if (!displayAirBlock && id == "0") {
+		if (!displayAirBlock && (id == "0" || id == "0:0")) {
 			return;
 		}
 
@@ -175,10 +175,6 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 		elementWithTooltip.className = 'with-tooltip';
 		entryElement.appendChild(elementWithTooltip);
 
-		var imageContainer = document.createElement('div');
-		imageContainer.className = 'img-container';
-		elementWithTooltip.appendChild(imageContainer);
-
 		var img = document.createElement('img');
 
 		if (entry.sprite) {
@@ -187,7 +183,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			img.src = 'images/unknown.png';
 		}
 
-		imageContainer.appendChild(img);
+		elementWithTooltip.appendChild(img);
 
 		var tooltip = document.createElement('div');
 		tooltip.className = 'tooltip';

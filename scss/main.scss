@@ -243,6 +243,9 @@ p {
 
 .entry {
 	margin: 0 2px 3px 2px;
+
+	width: 32px;
+	height: 48px;
 }
 
 .fieldset-content {
@@ -274,13 +277,6 @@ p {
 
 .id-unobtainable {
 	color: $color-unobtainable;
-}
-
-.img-container {
-	width: 32px;
-	height: 34px;
-
-	position: relative;
 }
 
 .with-tooltip .tooltip {
