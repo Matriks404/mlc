@@ -25,10 +25,6 @@ Following table shows current and planned functionality:
 |   **Mob ID'S**   |      ❓      |    ❓    |   ❓   |   ❓    |   ❓   |  ❓   |             ❌              |              ❌               |
 | **Achievements** |      🚫      |    🚫    |   🚫   |   🚫    |   🚫   |  ❌   |             ❌              |              ❌               |
 
-## Accessibility
-
-* Website applies high contrast theme when applicable.
-
 ## Running locally
 
 See [this wiki page](https://github.com/Matriks404/mlc/wiki/Running-locally).
