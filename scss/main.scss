@@ -86,16 +86,16 @@ p {
 	color: $color-default-message;
 }
 
-//#info-presumed-item-ids {
-//	display: none;
-//
-//	color: $color-default-message;
-//}
-
 #info-removed {
 	display: none;
 
 	color: $color-removed;
+}
+
+#info-obtainable-by-block-transmutation {
+	display: none;
+
+	color: $color-obtainable-by-block-transmutation;
 }
 
 #info-obtainable-by-notch {
@@ -261,6 +261,10 @@ p {
 
 .id-migratable {
 	color: $color-migratable;
+}
+
+.id-obtainable-by-block-transmutation {
+	color: $color-obtainable-by-block-transmutation;
 }
 
 .id-obtainable-by-notch {

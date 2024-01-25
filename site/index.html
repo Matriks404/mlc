@@ -35,32 +35,37 @@
 					</div>
 
 					<div id="parameters-input">
-						<div id="exclude-unobtainable-setting">
+						<div>
 							<input type="checkbox" id="exclude-unobtainable" name="exclude-unobtainable" />
 							<label for="exclude-unobtainable">Exclude unobtainable blocks/items</label>
 						</div>
 
-						<div id="exclude-migratable-setting">
+						<div>
 							<input type="checkbox" id="exclude-migratable" name="exclude-migratable" />
 							<label for="exclude-migratable">Exclude blocks/items obtainable by migration</label>
 						</div>
 
-						<div id="exclude-obtainable-by-notch-setting">
-							<input type="checkbox" id="exclude-obtainable-by-notch" name="exclude-obtainable-by-notch" />
-							<label for="exclude-obtainable-by-notch">Exclude blocks/items obtainable by Notch</label>
+						<div>
+							<input type="checkbox" id="exclude-obtainable-by-block-transmutation" name="exclude-obtainable-by-block-transmutation" />
+							<label for="exclude-obtainable-by-block-transmutation">Exclude blocks obtainable by transmutation</label>
 						</div>
 
-						<div id="exclude-obtainable-in-winter-mode-setting">
+						<div>
+							<input type="checkbox" id="exclude-obtainable-by-notch" name="exclude-obtainable-by-notch" />
+							<label for="exclude-obtainable-by-notch">Exclude items obtainable by Notch</label>
+						</div>
+
+						<div>
 							<input type="checkbox" id="exclude-obtainable-in-winter-mode" name="exclude-obtainable-in-winter-mode" />
 							<label for="exclude-obtainable-in-winter-mode">Exclude blocks/items obtainable in winter mode</label>
 						</div>
 
-						<div id="display-air-block-setting">
+						<div>
 							<input type="checkbox" id="display-air-block" name="display-air-block" />
 							<label for="display-air-block">Display air "block"</label>
 						</div>
 
-						<!--<div id="use-beta173-graphics-setting">
+						<!--<div>
 							<input type="checkbox" id="use-beta173-graphics" name="use-beta173-graphics" />
 							<label for="use-beta173-graphics">Use Beta 1.7.3 graphics (prevents image reloading)</label>
 						</div>-->
@@ -105,12 +110,6 @@
 					<p>This is very naive assumption, so if you know IDs for these items, please contribute.</p>
 				</div>
 
-				<!--<div id="info-presumed-item-ids">
-					<p>This version has presumed item IDs. </p>
-					<p>It is assumed that items available are in the same order as in later versions.</p>
-					<p>This is naive assumption, so if you can confirm IDs for these items, please contribute.</p>
-				</div>-->
-
 				<div id="info-unobtainable">
 					<p>Data values colored in red cannot be legitimately obtained.</p>
 					<p>These are only available with cheats/server commands.</p>
@@ -121,9 +120,14 @@
 					<p>unless you migrate from older version or use cheat/server commands.</p>
 				</div>
 
+				<div id="info-obtainable-by-block-transmutation">
+					<p>Data values colored in blue cannot be legitimately obtained,</p>
+					<p>unless using block transmutation method via migrating through one ore more versions with placed block in the world that has specific data value.</p>
+				</div>
+
 				<div id="info-obtainable-by-notch">
 					<p>Data values colored in gold cannot be legitimately obtained,</p>
-					<p>unless the player is named "Notch".</p>
+					<p>unless the player is Notch.</p>
 				</div>
 
 				<div id="info-obtainable-in-winter-mode">
