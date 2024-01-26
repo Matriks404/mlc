@@ -2,7 +2,7 @@
 
 **Minecraft Legacy Companion** (or **MLC** for short) is a website designed to help you with various aspects of legacy **Minecraft** versions.
 
-For now it can only be used to display block/items ID's (and their obtainability) in **Minecraft** Pre-Classic, Classic and Indev, but in the future it will be expanded up to newer versions (with varying level of support) and additional features.
+For now it can only be used to display block/items ID's (and their obtainability) in all **Minecraft** versions from Pre-Classic up to Beta 1.3, but in the future this will be expanded up to newer versions with additional features.
 
 If you want to see live version [go here](https://matriks404.github.io/mlc/).
 
@@ -31,11 +31,13 @@ See [this wiki page](https://github.com/Matriks404/mlc/wiki/Running-locally).
 
 ## Licensing terms
 
-All of the original content is licensed under **CC BY-NC-SA 3.0** (compatible with [minecraft.wiki](https://minecraft.wiki/w/Minecraft_Wiki:Copyrights)) license.
+All of the fully original content is licensed under **GNU General Public License, version 2** license (anything aside from `site/images/` directory and `site/style.css`.
 
-The design of the interface is based on the [this diagram](https://minecraft.wiki/images/archive/20110915061258%21DataValuesBeta.png?2d45e&format=original) and the licensing for it applies.
+The theme is based on [this diagram](https://minecraft.wiki/images/archive/20110915061258%21DataValuesBeta.png?2d45e&format=original) and is licensed under **CC BY-NC-SA 3.0** (which is most probably appropriate license for the original file, aside from used assets created by Mojang). This applies to `site/style.css` file.
 
 Additionally this project uses in-game rendered **Minecraft** assets which are copyrighted by **[Mojang Studios](https://mojang.com)**, the terms of use for these assets can be found [here](https://www.minecraft.net/en-us/usage-guidelines#terms-brand_guidelines).
+
+**GNU General Public License, version 2** and **CC BY-NC-SA 3.0** licenses can be found in [this directory](licenses/) under names of `gpl-2.0.txt` and `cc-by-nc-sa-3.0.txt`.
 
 
 
