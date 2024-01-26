@@ -172,7 +172,17 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			idElement.className += ' id-removed';
 		}
 
-		idElement.innerHTML = id;
+		var idString;
+
+		if (id.includes(':') && id.endsWith('0')) {
+			var basicEntryId = id.substr(0, id.indexOf(':'));
+
+			idString = entries[basicEntryId + ':1'] ? id : basicEntryId;
+		} else {
+			idString = id;
+		}
+
+		idElement.innerHTML = idString;
 
 		if (hasUnknownIds) {
 			idElement.innerHTML += '?';
