@@ -33,7 +33,7 @@ See [this wiki page](https://github.com/Matriks404/mlc/wiki/Running-locally).
 
 All of the fully original content is licensed under **GNU General Public License, version 2** license (anything aside from `site/images/` directory and `site/style.css`.
 
-The theme is based on [this diagram](https://minecraft.wiki/images/archive/20110915061258%21DataValuesBeta.png?2d45e&format=original) and is licensed under **CC BY-NC-SA 3.0** (which is most probably appropriate license for the original file, aside from used assets created by Mojang). This applies to `site/style.css` file.
+The theme is based on [this diagram](https://minecraft.wiki/images/archive/20110915061258%21DataValuesBeta.png?2d45e&format=original) and is licensed under **CC BY-NC-SA 3.0** (which is most probably appropriate license for the original file, aside from used assets created by Mojang). This applies to all files in the `scss/` directory..
 
 Additionally this project uses in-game rendered **Minecraft** assets which are copyrighted by **[Mojang Studios](https://mojang.com)**, the terms of use for these assets can be found [here](https://www.minecraft.net/en-us/usage-guidelines#terms-brand_guidelines).
 
