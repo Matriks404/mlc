@@ -86,12 +86,6 @@ p {
 	color: $color-default-message;
 }
 
-#info-removed {
-	display: none;
-
-	color: $color-removed;
-}
-
 #info-obtainable-by-block-transmutation {
 	display: none;
 
@@ -275,10 +269,6 @@ p {
 	color: $color-obtainable-in-winter-mode;
 }
 
-.id-removed {
-	color: $color-removed;
-}
-
 .id-unobtainable {
 	color: $color-unobtainable;
 }
@@ -342,8 +332,8 @@ p {
 		color: $high-contrast-ui-elements-color;
 	}
 
-	#info-removed {
-		color: $color-removed-hc;
+	#info-migratable {
+		color: $color-migratable-hc;
 	}
 
 	#info-unobtainable {
@@ -354,8 +344,8 @@ p {
 		border: 2px solid $high-contrast-ui-elements-color;
 	}
 
-	.id-removed {
-		color: $color-removed-hc;
+	.id-migratable {
+		color: $color-migratable-hc;
 	}
 
 	.id-unobtainable {

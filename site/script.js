@@ -4,6 +4,13 @@ var loadedVersionGroupId = "";
 var loadedVersionId = "";
 var areSettingsUpdated = false;
 
+var excludeCheckboxes = [
+	'exclude-migratable',
+	'exclude-obtainable-by-block-transmutation',
+	'exclude-obtainable-by-notch',
+	'exclude-obtainable-in-winter-mode',
+];
+
 function fetchJSONData(filename) {
 	return fetch(filename)
 	.then(function (res) {
@@ -168,8 +175,6 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			idElement.className += ' id-obtainable-by-notch';
 		} else if (entry.isObtainableInWinterMode) {
 			idElement.className += ' id-obtainable-in-winter-mode';
-		} else if (entry.isRemoved) {
-			idElement.className += ' id-removed';
 		}
 
 		var idString;
@@ -262,12 +267,39 @@ function doEntriesContainEntryType(entries, type) {
 	});
 }
 
-function checkEntries(entries, el, type) {
-	if (doEntriesContainEntryType(entries, type)) {
-		el.style.display = "block";
-	} else {
-		el.style.display = "none";
-	}
+function checkEntries(blocks, items) {
+	var entries = [blocks, items];
+
+	var checks = [
+		{id: 'unobtainable', property: 'isUnobtainable'},
+		{id: 'migratable', property: 'isObtainableByMigration'},
+		{id: 'obtainable-by-block-transmutation', property: 'isObtainableByBlockTransmutation'},
+		{id: 'obtainable-by-notch', property: 'isObtainableByNotch'},
+		{id: 'obtainable-in-winter-mode', property: 'isObtainableInWinterMode'}
+	];
+
+	checks.forEach(function (check) {
+		check.infoEl = document.getElementById('info-' + check.id);
+		check.infoEl.style.display = "none";
+
+		check.excludeEl = document.getElementById('exclude-' + check.id);
+	});
+
+	entries.forEach(function (entries) {
+		checks.forEach(function (check) {
+			if (check.infoEl.style.display == "block") {
+				return;
+			}
+
+			var checked = check.excludeEl.checked;
+
+			if (doEntriesContainEntryType(entries, check.property)) {
+				check.infoEl.style.display = "block";
+			} else {
+				check.infoEl.style.display = "none";
+			}
+		});
+	});
 }
 
 function loadCurrentVersion() {
@@ -312,12 +344,18 @@ function loadCurrentVersion() {
 	var info = document.getElementById('info');
 	info.style.display = "flex";
 
-	checkVersionProperty('info-needs-testing', version, 'needsTesting');
-	checkVersionProperty('info-early-classic', version, 'isEarlyClassic');
-	checkVersionProperty('info-no-official-tooltip-names', version, 'hasNoOfficialTooltipNames')
-	checkVersionProperty('info-unknown-renders', version, 'hasUnknownRenders');
-	checkVersionProperty('info-unknown-block-ids', version, 'hasUnknownBlockIds');
-	checkVersionProperty('info-unknown-item-ids', version, 'hasUnknownItemIds');
+	var properties = [
+		['info-needs-testing', 'needsTesting'],
+		['info-early-classic', 'isEarlyClassic'],
+		['info-no-official-tooltip-names', 'hasNoOfficialTooltipNames'],
+		['info-unknown-renders', 'hasUnknownRenders'],
+		['info-unknown-block-ids', 'hasUnknownBlockIds'],
+		['info-unknown-item-ids', 'hasUnknownItemIds']
+	];
+
+	properties.forEach(function (property) {
+		checkVersionProperty(property[0], version, property[1]);
+	});
 
 	var containerElement = document.getElementById('container');
 	var oldMainElement = document.getElementsByTagName('main')[0];
@@ -341,20 +379,6 @@ function loadCurrentVersion() {
 	blocksElement.appendChild(blocksContentElement);
 	blocksContentElement.className = 'fieldset-content';
 
-	var infoUnobtainableElement = document.getElementById('info-unobtainable');
-	var infoMigratableElement = document.getElementById('info-migratable');
-	var infoObtainableByBlockTransmutationElement = document.getElementById('info-obtainable-by-block-transmutation');
-	var infoObtainableByNotchElement = document.getElementById('info-obtainable-by-notch');
-	var infoObtainableInWinterModeElement = document.getElementById('info-obtainable-in-winter-mode');
-	var infoRemovedElement = document.getElementById('info-removed');
-
-	checkEntries(blocks, infoUnobtainableElement, "isUnobtainable");
-	checkEntries(blocks, infoMigratableElement, "isObtainableByMigration");
-	checkEntries(blocks, infoObtainableByBlockTransmutationElement, "isObtainableByBlockTransmutation");
-	checkEntries(blocks, infoObtainableByNotchElement, "isObtainableByNotch");
-	checkEntries(blocks, infoObtainableInWinterModeElement, "isObtainableInWinterMode");
-	checkEntries(blocks, infoRemovedElement, "isRemoved");
-
 	loadEntries(blocks, blocksContentElement, "blocks", version.hasUnknownBlockIds);
 
 	var items = version.items;
@@ -371,26 +395,6 @@ function loadCurrentVersion() {
 		var itemsContentElement = document.createElement('div');
 		itemsElement.appendChild(itemsContentElement);
 		itemsContentElement.className = 'fieldset-content';
-
-		if (infoUnobtainableElement.style.display == "none") {
-			checkEntries(items, infoUnobtainableElement, "isUnobtainable");
-		}
-
-		if (infoMigratableElement.style.display == "none") {
-			checkEntries(items, infoMigratableElement, "isObtainableByMigration");
-		}
-
-		if (infoObtainableByNotchElement.style.display == "none") {
-			checkEntries(items, infoObtainableByNotchElement, "isObtainableByNotch");
-		}
-
-		if (infoObtainableInWinterModeElement.style.display == "none") {
-			checkEntries(items, infoObtainableInWinterModeElement, "isObtainableInWinterMode");
-		}
-
-		if (infoRemovedElement.style.display == "none") {
-			checkEntries(items, infoRemovedElement, "isRemoved");
-		}
 
 		loadEntries(items, itemsContentElement, "items", version.hasUnknownItemIds);
 	}
@@ -420,6 +424,8 @@ function loadCurrentVersion() {
 			tooltip.style.top = y;
 		});
 	});
+
+	checkEntries(version.blocks, version.items);
 }
 
 function reloadCheckboxes() {
@@ -487,44 +493,36 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('version-groups').addEventListener('change', loadVersionList);
 	document.getElementById('ok').addEventListener('click', loadCurrentVersion);
 
+	var displayAirBlockCheckbox = document.getElementById('display-air-block');
+
 	document.getElementById('exclude-unobtainable').addEventListener('change', function () {
 		updateSettingsStatus();
 
-		var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
-		var excludeMigratableCheckbox = document.getElementById('exclude-migratable');
-		var excludeObtainableByBlockTransmutationCheckbox = document.getElementById('exclude-obtainable-by-block-transmutation');
-		var excludeObtainableByNotchCheckbox = document.getElementById('exclude-obtainable-by-notch');
-		var excludeObtainableInWinterModeCheckbox = document.getElementById('exclude-obtainable-in-winter-mode');
-		var displayAirCheckbox = document.getElementById('display-air-block');
+		var excludeUnobtainable = this.checked;
+
+		excludeCheckboxes.forEach(function (checkboxId) {
+			var checkbox = document.getElementById(checkboxId);
+
+			checkbox.disabled = !excludeUnobtainable;
+
+			if (!excludeUnobtainable) {
+				checkbox.checked = false;
+			}
+		});
 
 		if (excludeUnobtainable) {
-			excludeMigratableCheckbox.disabled = "";
-			excludeObtainableByBlockTransmutationCheckbox.disabled = "";
-			excludeObtainableByNotchCheckbox.disabled = "";
-			excludeObtainableInWinterModeCheckbox.disabled = "";
-
-			displayAirCheckbox.checked = false;
-			displayAirCheckbox.disabled = "disabled";
+			displayAirBlockCheckbox.disabled = "disabled"
+			displayAirBlockCheckbox.checked = false;
 		} else {
-			excludeMigratableCheckbox.checked = false;
-			excludeMigratableCheckbox.disabled = "disabled";
-
-			excludeObtainableByBlockTransmutationCheckbox.checked = false;
-			excludeObtainableByBlockTransmutationCheckbox.disabled = "disabled";
-
-			excludeObtainableByNotchCheckbox.checked = false;
-			excludeObtainableByNotchCheckbox.disabled = "disabled";
-
-			excludeObtainableInWinterModeCheckbox.checked = false;
-			excludeObtainableInWinterModeCheckbox.disabled = "disabled";
-
-			displayAirCheckbox.disabled = "";
+			displayAirBlockCheckbox.disabled = "";
 		}
 	});
 
-	document.getElementById('exclude-migratable').addEventListener('change', updateSettingsStatus);
-	document.getElementById('exclude-obtainable-by-block-transmutation').addEventListener('change', updateSettingsStatus);
-	document.getElementById('exclude-obtainable-by-notch').addEventListener('change', updateSettingsStatus);
-	document.getElementById('exclude-obtainable-in-winter-mode').addEventListener('change', updateSettingsStatus);
-	document.getElementById('display-air-block').addEventListener('change', updateSettingsStatus);
+	excludeCheckboxes.forEach(function (checkboxId) {
+		var checkbox = document.getElementById(checkboxId);
+
+		checkbox.addEventListener('change', updateSettingsStatus);
+	});
+
+	displayAirBlockCheckbox.addEventListener('change', updateSettingsStatus);
 });
