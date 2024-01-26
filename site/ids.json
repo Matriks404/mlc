@@ -7128,7 +7128,7 @@
 					"89:0": { "name": "Glowstone", "sprite": "alpha/glowstone" },
 					"90:0": { "name": "Portal", "sprite": "alpha/portal", "isUnobtainable": true },
 					"91:0": { "name": "Jack 'o' Lantern", "sprite": "beta/pumpkin" },
-					"92:0": { "name": "Cake", "sprite": "beta/cake" }
+					"92:0": { "name": "Cake", "sprite": "beta/cake", "isUnobtainable": true }
 				},
 
 				"items": {
@@ -7357,7 +7357,7 @@
 					"89:0": { "name": "Glowstone", "sprite": "alpha/glowstone" },
 					"90:0": { "name": "Portal", "sprite": "alpha/portal", "isUnobtainable": true },
 					"91:0": { "name": "Jack 'o' Lantern", "sprite": "beta/pumpkin" },
-					"92:0": { "name": "Cake", "sprite": "beta/cake" }
+					"92:0": { "name": "Cake", "sprite": "beta/cake", "isUnobtainable": true }
 				},
 
 				"items": {
@@ -7586,7 +7586,7 @@
 					"89:0": { "name": "Glowstone", "sprite": "alpha/glowstone" },
 					"90:0": { "name": "Portal", "sprite": "alpha/portal", "isUnobtainable": true },
 					"91:0": { "name": "Jack 'o' Lantern", "sprite": "beta/pumpkin" },
-					"92:0": { "name": "Cake", "sprite": "beta/cake" }
+					"92:0": { "name": "Cake", "sprite": "beta/cake", "isUnobtainable": true }
 				},
 
 				"items": {
@@ -7824,7 +7824,7 @@
 					"89:0": { "name": "Glowstone", "sprite": "alpha/glowstone" },
 					"90:0": { "name": "Portal", "sprite": "alpha/portal", "isUnobtainable": true },
 					"91:0": { "name": "Jack 'o' Lantern", "sprite": "beta/pumpkin" },
-					"92:0": { "name": "Cake", "sprite": "beta/cake" },
+					"92:0": { "name": "Cake", "sprite": "beta/cake", "isUnobtainable": true },
 					"93:0": { "sprite": "beta/unpowered_repeater", "isUnobtainable": true },
 					"94:0": { "sprite": "beta/unpowered_repeater", "isUnobtainable": true }
 
