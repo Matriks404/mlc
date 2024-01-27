@@ -10,9 +10,9 @@ Alternatively, for running locally go to the section [over there](#running-local
 
 **NOT AN OFFICIAL MINECRAFT [PRODUCT/SERVICE/EVENT/etc.]. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT**
 
-## Screenshot
+## Screenshot (click to enlarge)
 
-<img alt="Minecraft Legacy Companion in a nutshell" src="./screenshots/1.png" height="400" />
+<img alt="Minecraft Legacy Companion in a nutshell" src="./screenshots/1.png" height="420" />
 
 ## Functionality
 
