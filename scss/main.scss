@@ -235,6 +235,18 @@ p {
 	margin-bottom: 2px;
 }
 
+.damage-value {
+	display: inline-block;
+	position: absolute;
+
+	top: 5px;
+
+	margin-left: 1px;
+
+	font-size: 9px;
+	//color: #646464;
+}
+
 .entry {
 	margin: 0 2px 3px 2px;
 
@@ -250,6 +262,8 @@ p {
 }
 
 .id {
+	position: relative;
+
 	text-align: center;
 }
 

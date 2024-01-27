@@ -179,10 +179,15 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 
 		var idString;
 
-		if (id.includes(':') && id.endsWith('0')) {
+		if (id.includes(':')) {
 			var basicEntryId = id.substr(0, id.indexOf(':'));
 
-			idString = entries[basicEntryId + ':1'] ? id : basicEntryId;
+			if (!id.endsWith('0') || entries[basicEntryId + ':1']) {
+				var damageValue = id.substr(id.indexOf(':') + 1);
+				idString = id
+			}
+
+			idString = basicEntryId;
 		} else {
 			idString = id;
 		}
@@ -191,6 +196,13 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 
 		if (hasUnknownIds) {
 			idElement.innerHTML += '?';
+		}
+
+		if (damageValue) {
+			var damageElement = document.createElement('div');
+			idElement.appendChild(damageElement);
+			damageElement.className = 'damage-value';
+			damageElement.innerHTML = damageValue;
 		}
 
 		var elementWithTooltip = document.createElement('div');
