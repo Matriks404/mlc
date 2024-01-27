@@ -12,7 +12,7 @@ Alternatively, for running locally go to the section [over there](#running-local
 
 ## Screenshot
 
-<img alt="Minecraft Legacy Companion in a nutshell" src="./screenshots/1.png" height="360" />
+<img alt="Minecraft Legacy Companion in a nutshell" src="./screenshots/1.png" height="400" />
 
 ## Functionality
 
