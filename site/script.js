@@ -182,7 +182,7 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 		if (id.includes(':')) {
 			var basicEntryId = id.substr(0, id.indexOf(':'));
 
-			if (!id.endsWith('0') || entries[basicEntryId + ':1']) {
+			if (entries[basicEntryId + ':1']) {
 				var damageValue = id.substr(id.indexOf(':') + 1);
 				idString = id
 			}
