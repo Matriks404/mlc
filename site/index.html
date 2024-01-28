@@ -12,8 +12,13 @@
 		<!-- Load polyfills for IE11 and below -->
 		<script>
 			if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+				String.prototype.includes = function(match) {
+					return this.indexOf(match) !== -1;
+				}
+
 				document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"><\/script>');
 				document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.js"><\/script>');
+
 			}
 		</script>
 	</head>
