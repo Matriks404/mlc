@@ -1,4 +1,6 @@
 title MLC Web Server Runner
 
-cd /D D:\Programy\php
-php -S 0.0.0.0:8888 -t D:\repos\mlc\site
+set "site_dir=%~dp0"
+
+cd /D C:\php
+php -S 0.0.0.0:8888 -t %site_dir%..\site
