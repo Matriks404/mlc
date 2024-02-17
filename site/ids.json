@@ -9176,7 +9176,7 @@
 					"80:0": { "name": "Snow", "sprite": "beta/snow" },
 					"81:0": { "name": "Cactus", "sprite": "beta/cactus" },
 					"82:0": { "name": "Clay", "sprite": "beta/clay" },
-					"83:0": { "name": "Reeds", "sprite": "alpha/reeds", "isObtainableByMigration": true },
+					"83:0": { "name": "Sugar cane", "sprite": "alpha/reeds", "isObtainableByMigration": true },
 					"84:0": { "name": "Jukebox", "sprite": "alpha/jukebox" },
 					"85:0": { "name": "Fence", "sprite": "beta/fence" },
 					"86:0": { "name": "Pumpkin", "sprite": "beta/pumpkin_v2" },
