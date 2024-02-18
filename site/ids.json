@@ -9394,7 +9394,7 @@
 					"44:1": { "name": "Sandstone Slab", "sprite": "beta/sandstone_slab_v3" },
 					"44:2": { "name": "Wooden Slab", "sprite": "beta/wooden_slab_v3" },
 					"44:3": { "name": "Stone Slab", "sprite": "beta/cobblestone_slab_v3" },
-					"44:4": { "sprite": "beta/seamless_slab_v3", "isUnobtainable": true },
+					"44:4": { "sprite": "beta/seamless_slab_v3", "isObtainableByBlockTransmutation": true },
 					"45:0": { "name": "Bricks", "sprite": "beta/brick_block_v2" },
 					"46:0": { "name": "TNT", "sprite": "beta/tnt" },
 					"47:0": { "name": "Bookshelf", "sprite": "beta/bookshelf" },
