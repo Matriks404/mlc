@@ -261,6 +261,10 @@ function doEntriesContainEntryType(entries, type) {
 			return false;
 		}
 
+		if (excludeObtainableByBlockTransmutation && entry.isObtainableByBlockTransmutation) {
+			return false;
+		}
+
 		if (excludeObtainableByNotch && entry.isObtainableByNotch) {
 			return false;
 		}
