@@ -205,9 +205,9 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			damageElement.innerHTML = damageValue;
 		}
 
-		var elementWithTooltip = document.createElement('div');
-		elementWithTooltip.className = 'with-tooltip';
-		entryElement.appendChild(elementWithTooltip);
+		var fieldElement = document.createElement('div');
+		fieldElement.className = 'field';
+		entryElement.appendChild(fieldElement);
 
 		var img = document.createElement('img');
 
@@ -217,16 +217,18 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			img.src = 'images/unknown.png';
 		}
 
-		elementWithTooltip.appendChild(img);
+		fieldElement.appendChild(img);
 
-		var tooltip = document.createElement('div');
-		tooltip.className = 'tooltip';
+		if (entry.name) {
+			entryElement.className += ' with-tooltip'
 
-		var name = entry.name ? entry.name : "[NO NAME]";
+			var tooltip = document.createElement('div');
+			tooltip.className = 'tooltip';
 
-		tooltip.innerHTML = name;
+			tooltip.innerHTML = entry.name;
 
-		elementWithTooltip.appendChild(tooltip);
+			entryElement.appendChild(tooltip);
+		}
 	});
 }
 

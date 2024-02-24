@@ -24,6 +24,10 @@ img {
 	image-rendering: pixelated;
 }
 
+//img:hover {
+//	filter: contrast(0.5) brightness(1.5);
+//}
+
 main > fieldset {
 	width: 324px;
 }
@@ -248,11 +252,24 @@ p {
 }
 
 .entry {
-	margin: 0 2px 3px 2px;
+	margin: 0 1px 3px 1px;
+	padding: 0 1px 0 1px;
 
 	width: 32px;
 	height: 48px;
 }
+
+.entry:hover {
+	background-color: #c5c5c5;
+
+	outline: 1px solid #4b4b4b;
+}
+
+.field {
+	width: 32px;
+	height: 32px;
+}
+
 
 .fieldset-content {
 	display: flex;
