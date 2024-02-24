@@ -262,7 +262,7 @@ p {
 .entry:hover {
 	background-color: #c5c5c5;
 
-	outline: 1px solid #4b4b4b;
+	outline: 1px solid $default-ui-elements-color;
 }
 
 .field {
@@ -373,6 +373,12 @@ p {
 
 	#legal-info {
 		border: 2px solid $high-contrast-ui-elements-color;
+	}
+
+	.entry:hover {
+		background-color: #c5c5c5;
+
+		outline: 1px solid $high-contrast-ui-elements-color;
 	}
 
 	.id-migratable {

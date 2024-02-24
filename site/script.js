@@ -261,8 +261,6 @@ function isAnyEntryWithProperty(entries, property) {
 }
 
 function checkEntries(categories) {
-	var countAirBlock = document.getElementById('display-air-block').checked;
-
 	var checks = [
 		{id: 'unobtainable', property: 'isUnobtainable'},
 		{id: 'migratable', property: 'isObtainableByMigration'},
