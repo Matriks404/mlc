@@ -242,42 +242,17 @@ function checkVersionProperty(elementName, version, property) {
 	}
 }
 
-function doEntriesContainEntryType(entries, type) {
-	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
-	var excludeMigratable = document.getElementById('exclude-migratable').checked;
-	var excludeObtainableByBlockTransmutation = document.getElementById('exclude-obtainable-by-block-transmutation').checked;
-	var excludeObtainableByNotch = document.getElementById('exclude-obtainable-by-notch').checked;
-	var excludeObtainableInWinterMode = document.getElementById('exclude-obtainable-in-winter-mode').checked;
+function isAnyEntryWithProperty(entries, property) {
 	var countAirBlock = document.getElementById('display-air-block').checked;
 
 	return Object.keys(entries).some(function (id) {
 		var entry = entries[id]
 
-		if (excludeUnobtainable && entry.isUnobtainable) {
-			return false;
-		}
-
-		if (excludeMigratable && entry.isObtainableByMigration) {
-			return false;
-		}
-
-		if (excludeObtainableByBlockTransmutation && entry.isObtainableByBlockTransmutation) {
-			return false;
-		}
-
-		if (excludeObtainableByNotch && entry.isObtainableByNotch) {
-			return false;
-		}
-
-		if (excludeObtainableInWinterMode && entry.isObtainableInWinterMode) {
-			return false;
-		}
-
 		if (!countAirBlock && id == "0") {
 			return false;
 		}
 
-		if (entry[type]) {
+		if (entry[property]) {
 			return true;
 		}
 
@@ -285,8 +260,8 @@ function doEntriesContainEntryType(entries, type) {
 	});
 }
 
-function checkEntries(blocks, items) {
-	var entries = [blocks, items];
+function checkEntries(categories) {
+	var countAirBlock = document.getElementById('display-air-block').checked;
 
 	var checks = [
 		{id: 'unobtainable', property: 'isUnobtainable'},
@@ -303,18 +278,18 @@ function checkEntries(blocks, items) {
 		check.excludeEl = document.getElementById('exclude-' + check.id);
 	});
 
-	entries.forEach(function (entries) {
+	categories.forEach(function (entries) {
 		checks.forEach(function (check) {
 			if (check.infoEl.style.display == "block") {
 				return;
 			}
 
-			var checked = check.excludeEl.checked;
+			var excluded = check.excludeEl.checked;
 
-			if (doEntriesContainEntryType(entries, check.property)) {
-				check.infoEl.style.display = "block";
-			} else {
+			if (excluded || !isAnyEntryWithProperty(entries, check.property)) {
 				check.infoEl.style.display = "none";
+			} else {
+				check.infoEl.style.display = "block";
 			}
 		});
 	});
@@ -443,7 +418,11 @@ function loadCurrentVersion() {
 		});
 	});
 
-	checkEntries(version.blocks, version.items);
+	if (version.items) {
+		checkEntries([version.blocks, version.items]);
+	} else {
+		checkEntries([version.blocks]);
+	}
 }
 
 function reloadCheckboxes() {
