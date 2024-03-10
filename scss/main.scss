@@ -241,14 +241,13 @@ p {
 
 .damage-value {
 	display: inline-block;
-	position: absolute;
+	position: relative;
 
-	top: 5px;
+	top: 2px;
 
 	margin-left: 1px;
 
 	font-size: 9px;
-	//color: #646464;
 }
 
 .entry {
@@ -376,8 +375,6 @@ p {
 	}
 
 	.entry:hover {
-		background-color: #c5c5c5;
-
 		outline: 1px solid $high-contrast-ui-elements-color;
 	}
 
