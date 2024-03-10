@@ -11,6 +11,23 @@ var excludeCheckboxes = [
 	'exclude-obtainable-in-winter-mode',
 ];
 
+function writeToClipboard(el) {
+	var idElement = el.querySelector('.id');
+	var id = idElement.firstChild.nodeValue;
+
+	var damageValueElement = idElement.querySelector('.damage-value');
+
+	if (damageValueElement) {
+		var damageValue = damageValueElement.innerText;
+
+		navigator.clipboard.writeText(id + ':' + damageValue);
+	} else {
+		navigator.clipboard.writeText(id);
+	}
+
+	alert("ID copied!");
+}
+
 function fetchJSONData(filename) {
 	return fetch(filename)
 	.then(function (res) {
@@ -98,8 +115,8 @@ function loadVersionList() {
 	var versions = versionGroups[groupId].versions;
 
 	Object.keys(versions).forEach(function (id) {
-		var option = document.createElement('option');
-		option.setAttribute('value', id);
+		var optionElement = document.createElement('option');
+		optionElement.setAttribute('value', id);
 
 		var version = versions[id]
 		var name;
@@ -116,9 +133,9 @@ function loadVersionList() {
 			name += " [NEEDS TESTING]";
 		}
 
-		option.text = name;
+		optionElement.text = name;
 
-		el.add(option);
+		el.add(optionElement);
 	});
 }
 
@@ -389,6 +406,13 @@ function loadCurrentVersion() {
 
 		loadEntries(items, itemsContentElement, "items", version.hasUnknownItemIds);
 	}
+
+	var entryElements = document.querySelectorAll('.entry');
+
+	Array.prototype.forEach.call(entryElements, function(el) {
+		el.addEventListener('click', () => writeToClipboard(el));
+		//el.addEventListener('touchend', () => writeToClipboard(el));
+	});
 
 	var elementsWithTooltips = document.querySelectorAll('.with-tooltip');
 
