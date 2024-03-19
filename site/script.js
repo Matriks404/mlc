@@ -11,6 +11,23 @@ var excludeCheckboxes = [
 	'exclude-obtainable-in-winter-mode',
 ];
 
+function writeToClipboard(el) {
+	var idElement = el.querySelector('.id');
+	var id = idElement.firstChild.nodeValue;
+
+	var damageValueElement = idElement.querySelector('.damage-value');
+
+	if (damageValueElement) {
+		var damageValue = damageValueElement.innerText;
+
+		navigator.clipboard.writeText(id + ':' + damageValue);
+	} else {
+		navigator.clipboard.writeText(id);
+	}
+
+	alert("ID copied!");
+}
+
 function fetchJSONData(filename) {
 	return fetch(filename)
 	.then(function (res) {
@@ -98,8 +115,8 @@ function loadVersionList() {
 	var versions = versionGroups[groupId].versions;
 
 	Object.keys(versions).forEach(function (id) {
-		var option = document.createElement('option');
-		option.setAttribute('value', id);
+		var optionElement = document.createElement('option');
+		optionElement.setAttribute('value', id);
 
 		var version = versions[id]
 		var name;
@@ -116,9 +133,9 @@ function loadVersionList() {
 			name += " [NEEDS TESTING]";
 		}
 
-		option.text = name;
+		optionElement.text = name;
 
-		el.add(option);
+		el.add(optionElement);
 	});
 }
 
@@ -205,9 +222,9 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			damageElement.innerHTML = damageValue;
 		}
 
-		var elementWithTooltip = document.createElement('div');
-		elementWithTooltip.className = 'with-tooltip';
-		entryElement.appendChild(elementWithTooltip);
+		var fieldElement = document.createElement('div');
+		fieldElement.className = 'field';
+		entryElement.appendChild(fieldElement);
 
 		var img = document.createElement('img');
 
@@ -217,16 +234,18 @@ function loadEntries(entries, el, entriesName, hasUnknownIds) {
 			img.src = 'images/unknown.png';
 		}
 
-		elementWithTooltip.appendChild(img);
+		fieldElement.appendChild(img);
 
-		var tooltip = document.createElement('div');
-		tooltip.className = 'tooltip';
+		if (entry.name) {
+			entryElement.className += ' with-tooltip'
 
-		var name = entry.name ? entry.name : "[NO NAME]";
+			var tooltip = document.createElement('div');
+			tooltip.className = 'tooltip';
 
-		tooltip.innerHTML = name;
+			tooltip.innerHTML = entry.name;
 
-		elementWithTooltip.appendChild(tooltip);
+			entryElement.appendChild(tooltip);
+		}
 	});
 }
 
@@ -240,38 +259,17 @@ function checkVersionProperty(elementName, version, property) {
 	}
 }
 
-function doEntriesContainEntryType(entries, type) {
-	var excludeUnobtainable = document.getElementById('exclude-unobtainable').checked;
-	var excludeMigratable = document.getElementById('exclude-migratable').checked;
-	var excludeObtainableByBlockTransmutation = document.getElementById('exclude-obtainable-by-block-transmutation').checked;
-	var excludeObtainableByNotch = document.getElementById('exclude-obtainable-by-notch').checked;
-	var excludeObtainableInWinterMode = document.getElementById('exclude-obtainable-in-winter-mode').checked;
+function isAnyEntryWithProperty(entries, property) {
 	var countAirBlock = document.getElementById('display-air-block').checked;
 
 	return Object.keys(entries).some(function (id) {
 		var entry = entries[id]
 
-		if (excludeUnobtainable && entry.isUnobtainable) {
-			return false;
-		}
-
-		if (excludeMigratable && entry.isObtainableByMigration) {
-			return false;
-		}
-
-		if (excludeObtainableByNotch && entry.isObtainableByNotch) {
-			return false;
-		}
-
-		if (excludeObtainableInWinterMode && entry.isObtainableInWinterMode) {
-			return false;
-		}
-
 		if (!countAirBlock && id == "0") {
 			return false;
 		}
 
-		if (entry[type]) {
+		if (entry[property]) {
 			return true;
 		}
 
@@ -279,9 +277,7 @@ function doEntriesContainEntryType(entries, type) {
 	});
 }
 
-function checkEntries(blocks, items) {
-	var entries = [blocks, items];
-
+function checkEntries(categories) {
 	var checks = [
 		{id: 'unobtainable', property: 'isUnobtainable'},
 		{id: 'migratable', property: 'isObtainableByMigration'},
@@ -297,18 +293,18 @@ function checkEntries(blocks, items) {
 		check.excludeEl = document.getElementById('exclude-' + check.id);
 	});
 
-	entries.forEach(function (entries) {
+	categories.forEach(function (entries) {
 		checks.forEach(function (check) {
 			if (check.infoEl.style.display == "block") {
 				return;
 			}
 
-			var checked = check.excludeEl.checked;
+			var excluded = check.excludeEl.checked;
 
-			if (doEntriesContainEntryType(entries, check.property)) {
-				check.infoEl.style.display = "block";
-			} else {
+			if (excluded || !isAnyEntryWithProperty(entries, check.property)) {
 				check.infoEl.style.display = "none";
+			} else {
+				check.infoEl.style.display = "block";
 			}
 		});
 	});
@@ -411,6 +407,13 @@ function loadCurrentVersion() {
 		loadEntries(items, itemsContentElement, "items", version.hasUnknownItemIds);
 	}
 
+	var entryElements = document.querySelectorAll('.entry');
+
+	Array.prototype.forEach.call(entryElements, function(el) {
+		el.addEventListener('click', () => writeToClipboard(el));
+		//el.addEventListener('touchend', () => writeToClipboard(el));
+	});
+
 	var elementsWithTooltips = document.querySelectorAll('.with-tooltip');
 
 	Array.prototype.forEach.call(elementsWithTooltips, function (el) {
@@ -437,7 +440,11 @@ function loadCurrentVersion() {
 		});
 	});
 
-	checkEntries(version.blocks, version.items);
+	if (version.items) {
+		checkEntries([version.blocks, version.items]);
+	} else {
+		checkEntries([version.blocks]);
+	}
 }
 
 function reloadCheckboxes() {
