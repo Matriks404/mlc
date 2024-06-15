@@ -2,7 +2,7 @@
 
 **Minecraft Legacy Companion** (or **MLC** for short) is a website designed to help you with various aspects of legacy **Minecraft** versions.
 
-For now it can only be used to display block/items ID's (and their obtainability) in all **Minecraft** versions from Pre-Classic up to Beta 1.3, but in the future this will be expanded up to newer versions with additional features.
+For now it can only be used to display block/items ID's (and their obtainability) in all **Minecraft** versions from Pre-Classic up to Beta 1.7.3, but in the future this will be expanded up to newer versions with additional features.
 
 If you want to see live version [go here](https://matriks404.github.io/mlc/).
 
